@@ -1,0 +1,262 @@
+/**
+ * Demystifying Performance Timings presentation theme styles.
+ * By Jeremy L. Wagner, https://jeremywagner.me
+ **/
+
+// Default mixins and settings
+@import "../template/mixins";
+@import "../template/settings";
+
+// Font imports
+@import "fonts.scss";
+
+// Theme-specific variables
+$purple: #754668;
+$smokyBlack: #130303;
+$terraCotta: #ed6a5a;
+$darkTerraCotta: #db5461;
+$onyx: #3a2e39;
+$white: #eaeaea;
+
+// Theme overrides
+$mainColor: $white;
+$headingColor: $white;
+$mainFontSize: 42px;
+$mainFont: "Crimson Text", serif;;
+$headingFont: "Crimson Text", serif;
+$accentFont: "Satisfy", cursive;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+
+// Heading Sizes
+$heading1Size: 2.309em;
+$heading2Size: 1.7639419404em;
+$heading3Size: 1.3475492287em;
+$heading4Size: 1.0294493726em;
+$heading5Size: .7864395513em;
+
+// Theme template
+@import "../template/theme";
+
+.reveal{
+  code,
+  pre{
+    font-family: "Consolas", monospace;
+  }
+
+  pre{
+    width: 100%;
+  }
+
+  .slides{
+    section{
+      text-align: left;
+
+      .fragment{
+        transition: none;
+      }
+    }
+  }
+
+  section{
+    a{
+      color: $terraCotta;
+
+      &:hover{
+        color: $white;
+      }
+    }
+
+    h1{
+      font-size: $heading1Size;
+    }
+
+    h2{
+      font-size: $heading2Size;
+    }
+
+    h3{
+      font-size: $heading3Size;
+    }
+
+    h4{
+      font-size: $heading4Size;
+    }
+
+    h5{
+      font-size: $heading5Size;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5{
+      line-height: 1.2;
+      text-align: left;
+      font-weight: 400;
+      margin: 0;
+
+      code{
+        text-transform: none;
+      }
+    }
+
+    .accent{
+      font-family: $accentFont;
+      text-transform: none;
+      color: $terraCotta;
+    }
+
+    h3 + pre{
+      margin: .5em 0 1.5em;
+    }
+
+    ul{
+      align-self: center;
+
+      li{
+        color: $white;
+        margin-bottom: .25em;
+
+        &:first-child{
+          margin-top: .75em;
+        }
+
+        &:last-child{
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    li{
+      font-family: $mainFont;
+      line-height: 1.2;
+      color: $mainColor;
+    }
+
+    img,
+    video{
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+
+      &.diagram{
+        transform: scale(1.04);
+      }
+
+      &.full{
+        width: 100%;
+      }
+
+      &.stretch{
+        &.larger{
+          max-width: 60%;
+        }
+      }
+    }
+
+    video{
+      max-width: 50%;
+      width: 100%;
+
+      & + h4{
+        margin-top: 16px;
+      }
+    }
+
+    .flex-item-container{
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      align-content: flex-start;
+
+      & > *{
+        width: 48.75%;
+        height: auto;
+      }
+    }
+
+    .lowercase{
+      text-transform: none;
+    }
+  }
+
+  picture{
+    & > .stretch{
+      width: 100%;
+    }
+  }
+
+  blockquote{
+    background: none;
+    color: $white;
+    text-align: left;
+    width: 100%;
+    box-shadow: none;
+    line-height: 1.618;
+    padding: 0 0 0 1em;
+    border-left: .125em solid transparentize($terraCotta, .25);
+
+    code{
+      font-style: normal;
+      font-size: .9em;
+    }
+
+    cite{
+      text-align: right;
+      display: block;
+      font-size: 0.8333333333em;
+      margin: 0.3333333333em 0 0;
+    }
+  }
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: .5em 0 0;
+  }
+
+  th{
+    code{
+      font-weight: 400;
+    }
+  }
+}
+
+body{
+  background: $smokyBlack;
+}
+
+.title-card body{
+  .title-container{
+    > *:last-child{
+      padding-bottom: 0;
+    }
+
+    > *:first-child{
+      padding-top: 0;
+    }
+  }
+}
+
+.centered body{
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  li,
+  p{
+    text-align: center;
+  }
+
+  .reveal{
+    .slides{
+      section{
+        text-align: center;
+      }
+    }
+  }
+}
