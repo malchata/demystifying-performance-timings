@@ -14,13 +14,12 @@
 $purple: #754668;
 $smokyBlack: #130303;
 $terraCotta: #ed6a5a;
-$darkTerraCotta: #db5461;
-$onyx: #3a2e39;
-$white: #eaeaea;
+$isabelline: #eaeaea;
+$vistaBlue: #80a1d4;
 
 // Theme overrides
-$mainColor: $white;
-$headingColor: $white;
+$mainColor: $isabelline;
+$headingColor: $isabelline;
 $mainFontSize: 42px;
 $mainFont: "Crimson Text", serif;;
 $headingFont: "Crimson Text", serif;
@@ -61,10 +60,11 @@ $heading5Size: .7864395513em;
 
   section{
     a{
-      color: $terraCotta;
+      color: $vistaBlue;
+      text-decoration: underline;
 
       &:hover{
-        color: $white;
+        color: $terraCotta;
       }
     }
 
@@ -93,7 +93,7 @@ $heading5Size: .7864395513em;
     h3,
     h4,
     h5{
-      line-height: 1.2;
+      line-height: 1.309;
       text-align: left;
       font-weight: 400;
       margin: 0;
@@ -117,7 +117,7 @@ $heading5Size: .7864395513em;
       align-self: center;
 
       li{
-        color: $white;
+        color: $isabelline;
         margin-bottom: .25em;
 
         &:first-child{
@@ -157,15 +157,6 @@ $heading5Size: .7864395513em;
       }
     }
 
-    video{
-      max-width: 50%;
-      width: 100%;
-
-      & + h4{
-        margin-top: 16px;
-      }
-    }
-
     .flex-item-container{
       display: flex;
       justify-content: space-around;
@@ -181,6 +172,10 @@ $heading5Size: .7864395513em;
     .lowercase{
       text-transform: none;
     }
+
+    .nowrap{
+      white-space: nowrap;
+    }
   }
 
   picture{
@@ -191,7 +186,7 @@ $heading5Size: .7864395513em;
 
   blockquote{
     background: none;
-    color: $white;
+    color: $isabelline;
     text-align: left;
     width: 100%;
     box-shadow: none;
@@ -227,6 +222,35 @@ $heading5Size: .7864395513em;
 
 body{
   background: $smokyBlack;
+
+  a.twitter{
+    color: $terraCotta;
+    font-family: $headingFont;
+    opacity: .5;
+    bottom: 1.5%;
+    right: 1%;
+    z-index: 2;
+    font-size: 2.375vmax;
+    line-height: 1;
+    display: block;
+    position: fixed;
+    text-decoration: none;
+  }
+
+  &:after{
+    position: fixed;
+    content: "";
+    font-size: 0;
+    width: 120%;
+    height: 25%;
+    opacity: .25;
+    background: $terraCotta;
+    bottom: -20%;
+    left: -10%;
+    transform: rotate(-1.5deg);
+    box-shadow: 0 0 8px $smokyBlack inset;
+    z-index: 1;
+  }
 }
 
 .title-card body{

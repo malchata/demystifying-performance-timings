@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="robots" content="noindex, nofollow, nocache">
     <title>Demystifying Performance Timings</title>
-    <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i|Satisfy" rel="stylesheet">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/mystifying.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
   </head>
   <body>
+    <a class="twitter" href="https://twitter.com/malchata" rel="noopener">@malchata</a>
     <!--
-      [0.0] - Intro
-      [1.0] - How Browsers Render Fonts
+      // TODO: Add ToC later
     -->
     <div class="reveal">
       <div class="slides">
@@ -24,6 +23,8 @@
             <div class="title-container">
               <h1 class="accent">Demystifying</h1>
               <h2>Performance timings</h2>
+              <h5>&nbsp;</h5>
+              <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
             </div>
           </section>
         </section>
@@ -40,35 +41,159 @@
             <h2 class="lowercase fragment">(or <em>lab data</em>)</h2>
           </section>
           <!-- [1.3] -->
-          <section>
-            <h1 class="accent">The case for:</h1>
-            <ul>
-              <li class="fragment">It's <em>easy</em>.</li>
-              <li class="fragment">Great for spot checking performance in dev environments. <span class="fragment">(With network throttling, of course.)</span></li>
-              <li class="fragment">Easy to measure the effect of code changes on performance.</li>
-            </ul>
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/lighthouse-2x.webp 2x, img/lighthouse-1x.webp 1x" type="image/webp">
+              <source srcset="img/lighthouse-2x.png 2x, img/lighthouse-1x.png 1x" type="image/png">
+              <img src="img/lighthouse-2x.png" alt="A screenshot of Chrome's Lighthouse audit in action.">
+            </picture>
+            <h4 class="lowercase"><em>Lighthouse</em></h4>
           </section>
           <!-- [1.4] -->
           <section>
-            <h1 class="accent">The case against:</h1>
-            <h3 class="lowercase">It doesn't necessarily reflect what <em>real users</em> are <em>experiencing</em>.</h3>
+            <h1 class="accent">The case for:</h1>
+            <ul>
+              <li class="fragment">It's <em>easy to do</em>.</li>
+              <li class="fragment">Great for spot checking performance in dev environments. <span class="fragment">(With network throttling, of course.)</span></li>
+              <li class="fragment">Easy to measure the effect of code changes on performance due to consistent baselines.</li>
+            </ul>
           </section>
           <!-- [1.5] -->
+          <section>
+            <h1 class="accent">The case against:</h1>
+            <h3 class="lowercase fragment">It doesn't necessarily reflect what <em>real users</em> are <em>experiencing</em>.</h3>
+          </section>
+          <!-- [1.6] -->
           <section data-state="centered">
             <h1>Enter RUM</h1>
           </section>
-          <!-- [1.6] -->
+          <!-- [1.7] -->
           <section data-state="centered">
             <picture>
-              <source srcset="/img/cheap-rum.webp" type="image/webp">
-              <img src="/img/cheap-rum.png" alt="A bottle of cheap rum.">
+              <source srcset="img/cheap-rum.webp" type="image/webp">
+              <img src="img/cheap-rum.png" alt="A bottle of cheap rum.">
             </picture>
             <h3 class="lowercase fragment">(No, not <em>this</em>.)</h3>
           </section>
-          <!-- [1.6] -->
+          <!-- [1.8] -->
           <section data-state="centered">
             <h1><u>R</u>eal <u>U</u>ser <u>M</u>etrics</h1>
             <h2 class="lowercase fragment">(or <em>field data</em>)</h2>
+          </section>
+          <!-- [1.9] -->
+          <section>
+            <h1 class="accent">The case for:</h1>
+            <h3 class="lowercase fragment">You're gathering metrics from <em>real users</em> who are using your site/app.</h3>
+          </section>
+          <!-- [1.10] -->
+          <section>
+            <h1 class="accent">The case against:</h1>
+            <h3 class="lowercase fragment">It's not as convenient.</h3>
+          </section>
+          <!-- [1.11] -->
+          <section>
+            <pre><code class="javascript">performance.getEntriesByType("navigation").forEach((navigation)=>{
+  console.dir(navigation);
+});</code></pre>
+          </section>
+          <!-- [1.12] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/navigation-timing-2x.webp 2x, img/navigation-timing-1x.webp 1x" type="image/webp">
+              <source srcset="img/navigation-timing-2x.png 2x, img/navigation-timing-1x.png 1x" type="image/png">
+              <img src="img/navigation-timing-2x.png" alt="A screenshot of a navigation timing entry in Chrome.">
+            </picture>
+          </section>
+          <!-- [1.13] -->
+          <section data-state="centered despair">
+            <video muted id="despair" class="stretch">
+              <source src="video/despair.webm" type="video/webm">
+              <source src="video/despair.ogv" type="video/ogg">
+              <source src="video/despair.mp4" type="video/mp4">
+            </video>
+          </section>
+        </section>
+        <!-- [2.0] -->
+        <section>
+          <!-- [2.1] -->
+          <section data-state="centered">
+            <h2>Navigation</h2>
+            <h3 class="lowercase"><em>and</em></h3>
+            <h2>Resource Timing</h2>
+          </section>
+          <!-- [2.2] -->
+          <section data-state="centered">
+            <h2>Processing Model</h2>
+            <img class="stretch" src="img/nav-timing-processing-model.svg" alt="Navigation timing processing model diagram.">
+            <h5 class="lowercase"><a href="https://www.w3.org/TR/navigation-timing-2/#processing-model" rel="noopener">w3.org/TR/navigation-timing-2/#processing-model</a></h5>
+          </section>
+          <!-- [2.3] -->
+          <section data-state="centered">
+            <h2>Unload</h2>
+            <h4 class="lowercase">When the document unloads. Triggered any time a navigation (successfully) kicks off.</h4>
+          </section>
+          <!-- [2.4] -->
+          <section data-state="centered">
+            <h3>Unload</h3>
+            <img src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
+          </section>
+          <!-- [2.5] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h2>unload metrics</h2>
+            <ul>
+              <li class="fragment"><code>startTime</code> is always <code>0</code>.</li>
+              <li class="fragment"><code>unloadEventStart</code> is <em>not</em> always <code>0</code>.</li>
+              <li class="fragment"><code>unloadEventStart</code> and <code>unloadEventEnd</code> can overlap with other events (e.g., connect, redirect).</li>
+            </ul>
+          </section>
+          <!-- [2.6] -->
+          <section data-state="centered">
+            <h2>Redirect</h2>
+            <h4 class="lowercase">When a navigation encounters one (or more) 3xx level status codes, causing redirection.</h4>
+          </section>
+          <section data-state="centered">
+            <h3>You should care</h3>
+            <picture>
+              <source srcset="img/redirect-2x.webp 2x, img/redirect-1x.webp 1x" type="image/webp">
+              <source srcset="img/redirect-2x.png 2x, img/redirect-1x.png 1x" type="image/png">
+              <img class="stretch" src="img/redirect-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
+            </picture>
+            <h3>about redirects</h3>
+          </section>
+          <!-- [2.8] -->
+          <section data-state="centered">
+            <h3>Redirect*</h3>
+            <img src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
+            <h5 class="fragment lowercase"><em>*Resource timing API processing model begins here.</em></h5>
+          </section>
+          <!-- [2.9] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Redirect metrics</h3>
+            <ul>
+              <li class="fragment"><code>redirectStart</code> and <code>redirectEnd</code> will be <code>0</code> if no redirects occur.</li>
+              <li class="fragment">Redirects from and to other origins can still come up as <code>0</code> if the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin" rel="noopener">Timing-Allow-Origin</a></code> header isn't set.</li>
+            </ul>
+          </section>
+          <!-- [2.10] -->
+          <section data-state="centered">
+            <h2>App Cache</h2>
+            <h4 class="lowercase">A phase where the browser may fetch items from a cache (including HTTP cache).</h4>
+          </section>
+          <!-- [2.11] -->
+          <section data-state="centered">
+            <h3>App Cache</h3>
+            <img src="img/nav-timing-appcache.svg" alt="Navigation timing processing model diagram with the app cache phase highlighted.">
+          </section>
+          <!-- [2.12] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>App Cache metrics</h3>
+            <ul>
+              <li class="fragment">Regardless of caching, <code>fetchStart</code> begins about the same time (varying baselines notwithstanding).</li>
+              <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> (e.g., <code>connectStart</code>, et cetera) will occur very nearly after.</li>
+            </ul>
           </section>
         </section>
       </div>
@@ -95,6 +220,10 @@
             }
           }
         ]});
+
+        Reveal.addEventListener("despair", function(){
+          document.getElementById("despair").play();
+        });
     </script>
     <script src="js/jquery.js"></script>
   </body>
