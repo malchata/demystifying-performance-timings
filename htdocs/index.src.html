@@ -161,13 +161,13 @@
             </picture>
             <h3>about redirects</h3>
           </section>
-          <!-- [2.8] -->
+          <!-- [2.7] -->
           <section data-state="centered">
             <h3>Redirect*</h3>
             <img src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
             <h5 class="fragment lowercase"><em>*Resource timing API processing model begins here.</em></h5>
           </section>
-          <!-- [2.9] -->
+          <!-- [2.8] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Redirect metrics</h3>
@@ -176,17 +176,17 @@
               <li class="fragment">Redirects from and to other origins can still come up as <code>0</code> if the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin" rel="noopener">Timing-Allow-Origin</a></code> header isn't set.</li>
             </ul>
           </section>
-          <!-- [2.10] -->
+          <!-- [2.9] -->
           <section data-state="centered">
             <h2>App Cache</h2>
             <h4 class="lowercase">A phase where the browser may fetch items from a cache (including HTTP cache).</h4>
           </section>
-          <!-- [2.11] -->
+          <!-- [2.10] -->
           <section data-state="centered">
             <h3>App Cache</h3>
             <img src="img/nav-timing-appcache.svg" alt="Navigation timing processing model diagram with the app cache phase highlighted.">
           </section>
-          <!-- [2.12] -->
+          <!-- [2.11] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>App Cache metrics</h3>
@@ -194,6 +194,59 @@
               <li class="fragment">Regardless of caching, <code>fetchStart</code> begins about the same time (varying baselines notwithstanding).</li>
               <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> (e.g., <code>connectStart</code>, et cetera) will occur very nearly after.</li>
             </ul>
+          </section>
+          <!-- [2.12] -->
+          <section data-state="centered">
+            <h2>Cached vs. uncached</h2>
+            <img class="stretch" src="img/appcache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached assets.">
+          </section>
+          <!-- [2.13] -->
+          <section data-state="centered">
+            <h2>DNS</h2>
+            <h4 class="lowercase">When DNS lookups occur.</h4>
+          </section>
+          <!-- [2.14] -->
+          <section data-state="centered">
+            <h3>DNS</h3>
+            <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
+          </section>
+          <!-- [2.15] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>DNS metrics</h3>
+            <ul>
+              <li class="fragment">DNS lookups happen once per origin per session.</li>
+              <li class="fragment">DNS lookups can be cached at multiple levels.</li>
+            </ul>
+          </section>
+          <!-- [2.16] -->
+          <section data-state="centered">
+            <h2>Connection</h2>
+            <h4 class="lowercase">When connections are established.</h4>
+          </section>
+          <!-- [2.17] -->
+          <section data-state="centered">
+            <h3>Connection</h3>
+            <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
+          </section>
+          <!-- [2.18] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Connection metrics</h3>
+            <ul>
+              <li class="fragment">Connection setup happens once per origin per session.</li>
+              <li class="fragment"><code>secureConnectionStart</code> only happens on HTTPS.</li>
+            </ul>
+          </section>
+          <!-- [2.19] -->
+          <section data-state="centered">
+            <h2>Request/Response</h2>
+            <h4 class="lowercase">When requests are made, and when responses begin and end.</h4>
+          </section>
+          <!-- [2.20] -->
+          <section data-state="centered">
+            <h3>Request/Response</h3>
+            <img src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
           </section>
         </section>
       </div>
