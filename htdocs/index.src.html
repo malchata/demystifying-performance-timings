@@ -115,29 +115,41 @@
         </section>
         <!-- [2.0] -->
         <section>
-          <!-- [2.1] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Navigation</h2>
             <h3 class="lowercase"><em>and</em></h3>
             <h2>Resource Timing</h2>
           </section>
-          <!-- [2.2] -->
+          <!-- [2.] -->
+          <section>
+            <h1 class="accent">Navigation timing</h1>
+            <h3>Gathers page metrics.</h3>
+            <h4 class="fragment lowercase"><em>(Usually HTML documents.)</em></h4>
+          </section>
+          <!-- [2.] -->
+          <section>
+            <h1 class="accent">Resource timing</h1>
+            <h3>Gathers resource metrics.</h3>
+            <h4 class="fragment lowercase"><em>(CSS, JavaScript, images, et cetera.)</em></h4>
+          </section>
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Processing Model</h2>
             <img class="stretch" src="img/nav-timing-processing-model.svg" alt="Navigation timing processing model diagram.">
             <h5 class="lowercase"><a href="https://www.w3.org/TR/navigation-timing-2/#processing-model" rel="noopener">w3.org/TR/navigation-timing-2/#processing-model</a></h5>
           </section>
-          <!-- [2.3] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Unload</h2>
             <h4 class="lowercase">When the document unloads. Triggered any time a navigation (successfully) kicks off.</h4>
           </section>
-          <!-- [2.4] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>Unload</h3>
             <img src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
           </section>
-          <!-- [2.5] -->
+          <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h2>unload metrics</h2>
@@ -147,11 +159,12 @@
               <li class="fragment"><code>unloadEventStart</code> and <code>unloadEventEnd</code> can overlap with other events (e.g., connect, redirect).</li>
             </ul>
           </section>
-          <!-- [2.6] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Redirect</h2>
             <h4 class="lowercase">When a navigation encounters one (or more) 3xx level status codes, causing redirection.</h4>
           </section>
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>You should care</h3>
             <picture>
@@ -161,13 +174,13 @@
             </picture>
             <h3>about redirects</h3>
           </section>
-          <!-- [2.7] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>Redirect*</h3>
             <img src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
-            <h5 class="fragment lowercase"><em>*Resource timing API processing model begins here.</em></h5>
+            <h5 class="fragment lowercase"><em>*Resource timing API processing model <u>begins</u> here.</em></h5>
           </section>
-          <!-- [2.8] -->
+          <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Redirect metrics</h3>
@@ -176,17 +189,17 @@
               <li class="fragment">Redirects from and to other origins can still come up as <code>0</code> if the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin" rel="noopener">Timing-Allow-Origin</a></code> header isn't set.</li>
             </ul>
           </section>
-          <!-- [2.9] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>App Cache</h2>
             <h4 class="lowercase">A phase where the browser may fetch items from a cache (including HTTP cache).</h4>
           </section>
-          <!-- [2.10] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>App Cache</h3>
             <img src="img/nav-timing-appcache.svg" alt="Navigation timing processing model diagram with the app cache phase highlighted.">
           </section>
-          <!-- [2.11] -->
+          <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>App Cache metrics</h3>
@@ -195,22 +208,22 @@
               <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> (e.g., <code>connectStart</code>, et cetera) will occur very nearly after.</li>
             </ul>
           </section>
-          <!-- [2.12] -->
+          <!-- [2.] -->
           <section data-state="centered">
-            <h2>Cached vs. uncached</h2>
-            <img class="stretch" src="img/appcache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached assets.">
+            <h2>Cached <span class="lowercase">vs.</span> uncached</h2>
+            <img class="stretch" src="img/appcache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached resources.">
           </section>
-          <!-- [2.13] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>DNS</h2>
             <h4 class="lowercase">When DNS lookups occur.</h4>
           </section>
-          <!-- [2.14] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>DNS</h3>
             <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
           </section>
-          <!-- [2.15] -->
+          <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>DNS metrics</h3>
@@ -219,34 +232,185 @@
               <li class="fragment">DNS lookups can be cached at multiple levels.</li>
             </ul>
           </section>
-          <!-- [2.16] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Connection</h2>
             <h4 class="lowercase">When connections are established.</h4>
           </section>
-          <!-- [2.17] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h3>Connection</h3>
             <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
           </section>
-          <!-- [2.18] -->
+          <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Connection metrics</h3>
             <ul>
               <li class="fragment">Connection setup happens once per origin per session.</li>
               <li class="fragment"><code>secureConnectionStart</code> only happens on HTTPS.</li>
+              <li class="fragment"><code>secureConnectionStart</code> can be <code>0</code> if TLS sessions are resumed.</li>
             </ul>
           </section>
-          <!-- [2.19] -->
+          <!-- [2.] -->
           <section data-state="centered">
             <h2>Request/Response</h2>
             <h4 class="lowercase">When requests are made, and when responses begin and end.</h4>
           </section>
-          <!-- [2.20] -->
+          <!-- [2.] -->
           <section data-state="centered">
-            <h3>Request/Response</h3>
+            <h3>Request/Response*</h3>
             <img src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
+            <h5 class="fragment lowercase"><em>*Resource timing API processing model <u>ends</u> here.</em></h5>
+          </section>
+          <!-- [2.] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Request/Response metrics</h3>
+            <ul>
+              <li class="fragment"><code>requestStart</code> denotes the start of a request.</li>
+              <li class="fragment"><code>responseStart</code> and <code>responseEnd</code> denote the start and end of a response, respectively.</li>
+            </ul>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <h3>Requests/Responses</h3>
+            <picture>
+              <source srcset="img/request-response-2x.webp 2x, img/request-response-1x.webp 1x" type="image/webp">
+              <source srcset="img/request-response-2x.png 2x, img/request-response-1x.png 1x" type="image/png">
+              <img class="stretch" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome dev tools.">
+            </picture>
+            <h2>visualized</h2>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <h2>Processing</h2>
+            <h4 class="lowercase">When the DOM is being processed, including when the DOM is interactive and when processing starts/begins.</h4>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <h3>Processing</h3>
+            <img src="img/nav-timing-processing.svg" alt="Navigation timing processing model diagram with the processing phase highlighted.">
+          </section>
+          <!-- [2.] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Processing metrics</h3>
+            <ul>
+              <li class="fragment"><code>domInteractive</code> marks when the browser has finished HTML parsing and DOM construction.</li>
+              <li class="fragment"><code>domContentLoadedEventStart</code> and <code>domContentLoadedEventEnd</code> marks when the DOM is ready.</li>
+              <li class="fragment"><code>domComplete</code> marks when everything has loaded.</li>
+            </ul>
+          </section>
+          <!-- [2.] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Processing metrics (Cont'd)</h3>
+            <ul>
+              <li class="fragment"><code>domInteractive</code>, <code>domContentLoadedEventStart</code>, and <code>domContentLoadedEventEnd</code> occur around the same time.</li>
+              <li class="fragment">Depending on front end architecture complexity, <code>domComplete</code> often occurs some time after <code>domContentLoadedEventEnd</code>.</li>
+            </ul>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/dom-metrics-2x.webp 2x, img/dom-metrics-1x.webp 1x" type="image/webp">
+              <source srcset="img/dom-metrics-2x.png 2x, img/dom-metrics-1x.png 1x" type="image/png">
+              <img class="stretch" src="img/dom-metrics-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <h2>Load</h2>
+            <h4 class="lowercase">When the page and all of its resources are fully loaded.</h4>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <h3>Load</h3>
+            <img src="img/nav-timing-load.svg" alt="Navigation timing processing model diagram with the load phase highlighted.">
+          </section>
+          <!-- [2.] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>Load metrics</h3>
+            <ul>
+              <li class="fragment"><code>loadEventStart</code> usually occurs briefly after <code>domComplete</code>.</li>
+              <li class="fragment"><code>loadEventEnd</code> signifies when the page has <em>completely</em> finished loading.</li>
+            </ul>
+          </section>
+        </section>
+        <!-- [3.0] -->
+        <section>
+          <!-- [3.] -->
+          <section>
+            <h1 class="accent">The little bits!</h1>
+            <h3 class="lowercase"><em>(Or, metrics that don't fit on a timeline.)</em></h3>
+          </section>
+          <!-- [3.] -->
+          <section data-state="centered">
+            <h2><code>transferSize</code></h2>
+            <h3 class="lowercase">The size of a resource including headers.</h3>
+          </section>
+          <!-- [3.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="/img/http-headers.webp" type="image/webp">
+              <img src="/img/http-headers.png" alt="An image of HTTP response headers.">
+            </picture>
+          </section>
+          <!-- [3.] -->
+          <section data-state="centered">
+            <h2><code>encodedBodySize</code></h2>
+            <h3 class="lowercase">The compressed size of a resource.</h3>
+            <h4 class="lowercase"><em>(Without headers.)</em></h4>
+          </section>
+          <!-- [3.] -->
+          <section data-state="centered">
+            <h2><code>decodedBodySize</code></h2>
+            <h3 class="lowercase">The decompressed size of a resource.</h3>
+            <h4 class="lowercase"><em>(Without headers.)</em></h4>
+          </section>
+          <!-- [3.] -->
+          <section data-state="centered">
+            <h2><code>nextHopProtocol</code></h2>
+            <h3 class="lowercase">The protocol used to transmit a resource.</h3>
+          </section>
+          <!-- [3.] -->
+          <section>
+            <h3><code>nextHopProtocol</code> values*:</h3>
+            <ul>
+              <li class="fragment"><code>h2</code> (HTTP/2)</li>
+              <li class="fragment"><code>hq</code> (QUIC)</li>
+              <li class="fragment"><code>http/1.1</code></li>
+            </ul>
+            <h4 class="fragment lowercase"><em>*This is probably not exhaustive!</em></h4>
+          </section>
+        </section>
+        <!-- [4.0] -->
+        <section>
+          <!-- [4.] -->
+          <section>
+            <h1 class="accent">Timing recipes!</h1>
+          </section>
+          <!-- [4.] -->
+          <section data-state="centered">
+            <h2>Resource fetch time</h2>
+            <h3><code>responseEnd - fetchStart</code></h3>
+          </section>
+          <!-- [4.] -->
+          <section data-state="centered">
+            <h2>Resource fetch speed</h2>
+            <h4><code>((transferSize / (2^20) / ((responseEnd - responseStart) / 1000)) * 8</code></h4>
+          </section>
+          <!-- [4.] -->
+          <section data-state="centered">
+            <h2>Compression ratio</h2>
+            <h4><code>decodedBodySize / encodedBodySize</code></h4>
+          </section>
+          <!-- [4.] -->
+          <section data-state="centered">
+            <h2>HTTP header size</h2>
+            <h4><code>transferSize - encodedBodySize</code></h4>
           </section>
         </section>
       </div>
