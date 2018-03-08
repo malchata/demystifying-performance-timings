@@ -214,6 +214,13 @@ $heading5Size: .7864395513em;
       font-weight: 400;
     }
   }
+
+  hr{
+    border-style: none;
+    border-top: 1px solid $isabelline;
+    margin: .25em 0;
+    opacity: 0.5;
+  }
 }
 
 body{
