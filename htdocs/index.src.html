@@ -32,8 +32,7 @@
         <section>
           <!-- [1.1] -->
           <section data-state="section-slide">
-            <h1 class="accent">In regards to</h1>
-            <h2>testing methods</h2>
+            <h1 class="accent">Re: testing methods</h1>
           </section>
           <!-- [1.2] -->
           <section data-state="centered">
@@ -92,7 +91,7 @@
           </section>
           <!-- [1.11] -->
           <section>
-            <pre><code class="javascript">performance.getEntriesByType("navigation").forEach((navigation)=>{
+            <pre><code class="javascript">performance.getEntriesByType("navigation").forEach((navigation) => {
   console.dir(navigation);
 });</code></pre>
           </section>
@@ -117,9 +116,9 @@
         <section>
           <!-- [2.] -->
           <section data-state="centered">
-            <h2>Navigation</h2>
-            <h3 class="lowercase"><em>and</em></h3>
-            <h2>Resource Timing</h2>
+            <h1 class="accent">Navigation</h1>
+            <h3 class="accent">and</h3>
+            <h1 class="accent">Resource Timing</h1>
           </section>
           <!-- [2.] -->
           <section>
@@ -137,7 +136,7 @@
           <section data-state="centered">
             <h2>Processing Model</h2>
             <img class="stretch" src="img/nav-timing-processing-model.svg" alt="Navigation timing processing model diagram.">
-            <h5 class="lowercase"><a href="https://www.w3.org/TR/navigation-timing-2/#processing-model" rel="noopener">w3.org/TR/navigation-timing-2/#processing-model</a></h5>
+            <h5 class="lowercase"><em><a href="https://www.w3.org/TR/navigation-timing-2/#processing-model" rel="noopener">w3.org/TR/navigation-timing-2/#processing-model</a></em></h5>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -343,8 +342,7 @@
         <section>
           <!-- [3.] -->
           <section>
-            <h1 class="accent">The little bits!</h1>
-            <h3 class="lowercase"><em>(Or, metrics that don't fit on a timeline.)</em></h3>
+            <h1 class="accent">The little bits</h1>
           </section>
           <!-- [3.] -->
           <section data-state="centered">
@@ -395,7 +393,7 @@
         <section>
           <!-- [4.] -->
           <section>
-            <h1 class="accent">Timing recipes!</h1>
+            <h1 class="accent">Timing recipes</h1>
           </section>
           <!-- [4.] -->
           <section data-state="centered">
@@ -454,16 +452,17 @@
         </section>
         <!-- [5.0] -->
         <section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section>
             <h1 class="accent">Bonus materials!</h1>
           </section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section data-state="centered">
             <h2>Server Timing</h2>
             <h4 class="lowercase">Passes server side metrics to navigation timing.</h4>
+            <h5 class="lowercase"><em><a href="https://w3c.github.io/server-timing/" rel="noopener">w3c.github.io/server-timing</a></em></h5>
           </section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section data-state="centered">
             <h3>
               What <code>Server-Timing</code><br>
@@ -475,7 +474,7 @@
               <img class="stretch" src="img/server-timing-headers-1x.png" alt="An image of the server timing header.">
             </picture>
           </section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section data-state="centered">
             <h3>
               What <code>Server-Timing</code><br>
@@ -487,7 +486,7 @@
               <img class="stretch" src="img/server-timing-headers-1x.png" alt="An image of the server timing header.">
             </picture>
           </section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section data-state="centered">
             <h3>
               How <code>Server-Timing</code><br>
@@ -499,10 +498,125 @@
               <img class="stretch" src="img/server-timing-readout-1x.png" alt="The visualization of server timing values in Chrome's dev tools.">
             </picture>
           </section>
-          <!-- [4.] -->
+          <!-- [5.] -->
           <section data-state="centered">
             <h2>Paint Timing API</h2>
             <h4 class="lowercase">Exposes first paint and first meaningful paint timings.</h4>
+            <h5 class="lowercase"><em><a href="https://www.w3.org/TR/paint-timing/" rel="noopener">w3.org/TR/paint-timing</a></em><h5>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <h3>Try it in the console*:</h3>
+            <pre><code class="javascript">performance.getEntriesByType(&quot;paint&quot;).forEach((paint) => {
+  console.dir(paint);
+});</code></pre>
+            <h5 class="lowercase fragment"><em>*Currently only in Chrome</em></h5>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <h3>Paint timing metrics:</h3>
+            <picture>
+              <source srcset="img/paint-timing-2x.webp 2x, img/paint-timing-1x.webp 1x" type="image/webp">
+              <source srcset="img/paint-timing-2x.png 2x, img/paint-timing-1x.png 1x" type="image/png">
+              <img class="medium" src="img/paint-timing-1x.png" alt="Paint timing metrics in the Chrome console.">
+            </picture>
+          </section>
+          <!-- [5.] -->
+          <section>
+            <h3>Paint timing metrics:</h3>
+            <ul>
+              <li class="fragment"><code>first-paint</code>: The first moment <em>anything</em> is painted to the browser window.</li>
+              <li class="fragment"><code>first-contentful-paint:</code> The first moment <em>meaningful</em> content is painted to the browser window.</li>
+            </ul>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <h2>Long Tasks API</h2>
+            <h4 class="lowercase">Logs activity that blocks the main thread for a long period of time.</h4>
+            <h5 class="lowercase"><em><a href="https://w3c.github.io/longtasks/" rel="noopener">w3c.github.io/longtasks</a></em></h5>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <h3>What is a &quot;long task&quot;?
+            <blockquote cite="https://w3c.github.io/longtasks/#sec-terminology">
+              &ldquo;<strong>Long task</strong> refers to an event loop that exceeds 50ms.&rdquo;<br>
+              <cite>&mdash; <a href="https://w3c.github.io/longtasks/#sec-terminology" rel="noopener">Long Tasks Spec, &sect; 2.</a></cite>
+            </blockquote>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <pre><code class="javascript">var observer = new PerformanceObserver(function(list) {
+  var perfEntries = list.getEntries();
+  for (var i = 0; i &lt; perfEntries.length; i++) {
+    console.dir(perfEntries[i]);
+  }
+});
+
+observer.observe({
+  entryTypes: [&quot;longtask&quot;]
+});</code></pre>
+            <h5 class="lowercase fragment"><em>*Will output nothing if no long tasks are detected after initializing the observer.</em></h5>
+          </section>
+          <!-- [5.] -->
+          <section data-state="centered">
+            <h3>Long task metrics:</h3>
+            <picture>
+              <source srcset="img/longtask-2x.webp 2x, img/longtask-1x.webp 1x" type="image/webp">
+              <source srcset="img/longtask-2x.png 2x, img/longtask-1x.png 1x" type="image/png">
+              <img class="medium" src="img/longtask-1x.png" alt="Long task metrics in the Chrome console.">
+            </picture>
+          </section>
+        </section>
+        <!-- [6.0] -->
+        <section>
+          <!-- [6.] -->
+          <section>
+            <h1 class="accent">Quick tips</h1>
+          </section>
+          <!-- [6.] -->
+          <section data-state="centered">
+            <h2>
+              Don't record<br>
+              computed metrics
+            </h2>
+            <h4 class="fragment lowercase"><em>(Unless you know what you're doing)</em></h4>
+          </section>
+          <!-- [6.] -->
+          <section data-state="centered">
+            <h2>Always feature check:</h2>
+            <pre><code class="javascript">// Check if we can do performance-y things
+if (&quot;performance&quot; in window) {
+  if (performance.getEntriesByType("navigation").length > 0) {
+    // Do things with navigation timing
+  }
+
+  if (performance.getEntriesByType("resource").length > 0) {
+    // Do things with resource timing
+  }
+
+  if (performance.getEntriesByType("paint").length > 0) {
+    // Do things with paint timing
+  }
+}</code></pre>
+          </section>
+          <!-- [6.] -->
+          <section data-state="centered">
+            <h2>Use <code>PerformanceObserver</code></h2>
+          </section>
+          <!-- [6.] -->
+          <section data-state="centered">
+            <h3>Using <code>PerformanceObserver</code></h3>
+            <pre><code class="javascript">var observer = new PerformanceObserver(function(list) {
+  var perfEntries = list.getEntries();
+  for (var i = 0; i &lt; perfEntries.length; i++) {
+    // Do stuff with whatever comes in
+  }
+});
+
+observer.observe({
+  // Add performance entry types you want to observe here:
+  entryTypes: [&quot;navigation&quot;, &quot;resource&quot;, &quot;paint&quot;, &quot;longtask&quot;]
+});</code></pre>
           </section>
         </section>
       </div>
@@ -524,16 +638,15 @@
           {
             src: 'plugin/highlight/highlight.js',
             async: true,
-            callback: function(){
+            callback: function() {
               hljs.initHighlightingOnLoad();
             }
           }
         ]});
 
-        Reveal.addEventListener("despair", function(){
+        Reveal.addEventListener("despair", function() {
           document.getElementById("despair").play();
         });
     </script>
-    <script src="js/jquery.js"></script>
   </body>
 </html>

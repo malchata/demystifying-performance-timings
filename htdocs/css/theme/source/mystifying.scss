@@ -103,6 +103,31 @@ $heading5Size: .7864395513em;
       }
     }
 
+    blockquote{
+      background: none;
+      color: $isabelline;
+      text-align: left;
+      width: 100%;
+      box-shadow: none;
+      line-height: 1.309;
+      font-size: .875em;
+      padding: 0 0 0 1em;
+      text-transform: none;
+      border-left: .125em solid transparentize($terraCotta, .25);
+
+      code{
+        font-style: normal;
+        font-size: .9em;
+      }
+
+      cite{
+        text-align: right;
+        display: block;
+        font-size: 0.8333333333em;
+        margin: 0.3333333333em 0 0;
+      }
+    }
+
     .accent{
       font-family: $accentFont;
       text-transform: none;
@@ -144,6 +169,10 @@ $heading5Size: .7864395513em;
 
       &.full{
         width: 100%;
+      }
+
+      &.medium{
+        width: 50%;
       }
 
       &.stretch{

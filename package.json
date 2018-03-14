@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "npx gulp",
     "build": "npx gulp build",
-    "present": "npx gulp build&&node http.js",
+    "start": "npx gulp build && node http.js",
     "postinstall": "npx gulp build"
   },
   "repository": {
@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/malchata/demystifying-performance-timings#readme",
   "dependencies": {
-    "autoprefixer": "^8.0.0",
+    "autoprefixer": "^8.1.0",
     "autorem": "^0.1.1",
     "cssnano": "^3.10.0",
     "express": "^4.16.2",
