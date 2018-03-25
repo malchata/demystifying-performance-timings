@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, nocache">
     <title>Demystifying Performance Timings</title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/mystifying.css">
+    <link rel="stylesheet" href="css/theme/mystifying.css?v=1">
     <link rel="stylesheet" href="lib/css/zenburn.css">
   </head>
   <body>
@@ -27,12 +27,23 @@
               <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
             </div>
           </section>
+          <!-- [0.2] - Hello! -->
+          <section>
+            <div class="flex-item-container">
+              <div>
+                <h1 class="accent">Hello,</h1>
+                <h3 class="lowercase">I'm Jeremy!</h3>
+              </div>
+              <img src="img/me.jpg" alt="Jeremy Wagner speaking at a conference.">
+            </div>
+          </section>
         </section>
         <!-- [1.0] -->
         <section>
           <!-- [1.1] -->
           <section data-state="section-slide">
-            <h1 class="accent">Re: testing methods</h1>
+            <h1 class="accent">Regarding</h1>
+            <h2>Testing methods</h2>
           </section>
           <!-- [1.2] -->
           <section data-state="centered">
@@ -49,6 +60,15 @@
             <h4 class="lowercase"><em>Lighthouse</em></h4>
           </section>
           <!-- [1.4] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/grafana-2x.webp 2x, img/grafana-1x.webp 1x" type="image/webp">
+              <source srcset="img/grafana-2x.png 2x, img/grafana-1x.png 1x" type="image/png">
+              <img class="stretch" src="img/grafana-2x.png" alt="A screenshot of a Grafana dashboard graphing Sitespeed.io data.">
+            </picture>
+            <h4 class="lowercase"><em>sitespeed.io + Grafana</em></h4>
+          </section>
+          <!-- [1.5] -->
           <section>
             <h1 class="accent">The case for:</h1>
             <ul>
@@ -57,16 +77,16 @@
               <li class="fragment">Easy to measure the effect of code changes on performance due to consistent baselines.</li>
             </ul>
           </section>
-          <!-- [1.5] -->
+          <!-- [1.6] -->
           <section>
             <h1 class="accent">The case against:</h1>
             <h3 class="lowercase fragment">It doesn't necessarily reflect what <em>real users</em> are <em>experiencing</em>.</h3>
           </section>
-          <!-- [1.6] -->
+          <!-- [1.7] -->
           <section data-state="centered">
             <h1>Enter RUM</h1>
           </section>
-          <!-- [1.7] -->
+          <!-- [1.8] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/cheap-rum.webp" type="image/webp">
@@ -74,28 +94,28 @@
             </picture>
             <h3 class="lowercase fragment">(No, not <em>this</em>.)</h3>
           </section>
-          <!-- [1.8] -->
+          <!-- [1.9] -->
           <section data-state="centered">
             <h1><u>R</u>eal <u>U</u>ser <u>M</u>etrics</h1>
             <h3 class="lowercase fragment">(or <em>field data</em>)</h3>
           </section>
-          <!-- [1.9] -->
+          <!-- [1.10] -->
           <section>
             <h1 class="accent">The case for:</h1>
             <h3 class="lowercase fragment">You're gathering metrics from <em>real users</em> who are using your site/app.</h3>
           </section>
-          <!-- [1.10] -->
+          <!-- [1.11] -->
           <section>
             <h1 class="accent">The case against:</h1>
             <h3 class="lowercase fragment">It's not as convenient.</h3>
           </section>
-          <!-- [1.11] -->
+          <!-- [1.12] -->
           <section>
             <pre><code class="javascript">performance.getEntriesByType("navigation").forEach((navigation) => {
   console.dir(navigation);
 });</code></pre>
           </section>
-          <!-- [1.12] -->
+          <!-- [1.13] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/navigation-timing-2x.webp 2x, img/navigation-timing-1x.webp 1x" type="image/webp">
@@ -103,13 +123,12 @@
               <img src="img/navigation-timing-2x.png" alt="A screenshot of a navigation timing entry in Chrome.">
             </picture>
           </section>
-          <!-- [1.13] -->
-          <section data-state="centered despair">
-            <video muted id="despair" class="stretch">
-              <source src="video/despair.webm" type="video/webm">
-              <source src="video/despair.ogv" type="video/ogg">
-              <source src="video/despair.mp4" type="video/mp4">
-            </video>
+          <!-- [1.14] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/cry.webp" type="image/webp">
+              <img class="stretch" src="img/cry.gif" alt="An animated image of a man crying.">
+            </picture>
           </section>
         </section>
         <!-- [2.0] -->
@@ -117,7 +136,7 @@
           <!-- [2.] -->
           <section data-state="centered">
             <h1 class="accent">Navigation</h1>
-            <h3 class="accent">and</h3>
+            <h2 class="accent">and</h2>
             <h1 class="accent">Resource Timing</h1>
           </section>
           <!-- [2.] -->
@@ -145,6 +164,13 @@
           </section>
           <!-- [2.] -->
           <section data-state="centered">
+            <picture>
+              <source srcset="img/unload.webp" type="image/webp">
+              <img class="larger stretch" src="img/unload.gif" alt="An animated image of a truck throwing stuff out the back using inertia.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
             <h3>Unload</h3>
             <img src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
           </section>
@@ -154,24 +180,29 @@
             <h2>unload metrics</h2>
             <ul>
               <li class="fragment"><code>startTime</code> is always <code>0</code>.</li>
-              <li class="fragment"><code>unloadEventStart</code> is <em>not</em> always <code>0</code>.</li>
-              <li class="fragment"><code>unloadEventStart</code> and <code>unloadEventEnd</code> can overlap with other events (e.g., connect, redirect).</li>
+              <li class="fragment"><code>unloadEventStart</code> may be <code>0</code> if there is no previous document, or if a previous document (or redirect) is not from the same origin.</li>
+              <li class="fragment"><code>unloadEventEnd</code> can overlap with other events (e.g., connect, redirect).</li>
             </ul>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
             <h2>Redirect</h2>
-            <h4 class="lowercase">When a navigation encounters one (or more) 3xx level status codes, causing redirection.</h4>
+            <h4 class="lowercase">When a navigation encounters one (or more) HTTP 300 level status codes, causing redirection.</h4>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
-            <h3>You should care</h3>
+            <picture>
+              <source srcset="img/cat-chasing-tail.webp" type="image/webp">
+              <img class="larger stretch" src="img/cat-chasing-tail.gif" alt="An animated image of a cat chasing its tail.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
             <picture>
               <source srcset="img/redirect-2x.webp 2x, img/redirect-1x.webp 1x" type="image/webp">
               <source srcset="img/redirect-2x.png 2x, img/redirect-1x.png 1x" type="image/png">
               <img class="stretch" src="img/redirect-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
             </picture>
-            <h3>about redirects</h3>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -191,7 +222,14 @@
           <!-- [2.] -->
           <section data-state="centered">
             <h2>App Cache</h2>
-            <h4 class="lowercase">A phase where the browser may fetch items from a cache (including HTTP cache).</h4>
+            <h4 class="lowercase">When the browser <em>may</em> fetch items from a cache.</h4>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/fetch.webp" type="image/webp">
+              <img class="larger stretch" src="img/fetch.gif" alt="An animated image of a person pushing a dog along the floor toward a ball.">
+            </picture>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -219,6 +257,21 @@
           </section>
           <!-- [2.] -->
           <section data-state="centered">
+            <picture>
+              <source srcset="img/gandalf.webp" type="image/webp">
+              <img src="img/gandalf.jpg" alt="Gandalf reading out of a giant book.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
+              <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
+              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
             <h3>DNS</h3>
             <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
           </section>
@@ -238,6 +291,21 @@
           </section>
           <!-- [2.] -->
           <section data-state="centered">
+            <picture>
+              <source srcset="img/handshake.webp" type="image/webp">
+              <img class="stretch larger" src="img/handshake.jpg" alt="Two men doing an awkward secret handshake.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
+              <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
+              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
+            </picture>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
             <h3>Connection</h3>
             <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
           </section>
@@ -247,14 +315,26 @@
             <h3>Connection metrics</h3>
             <ul>
               <li class="fragment">Connection setup happens once per origin per session.</li>
-              <li class="fragment"><code>secureConnectionStart</code> only happens on HTTPS.</li>
+              <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites.</li>
               <li class="fragment"><code>secureConnectionStart</code> can be <code>0</code> if TLS sessions are resumed.</li>
             </ul>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
             <h2>Request/Response</h2>
-            <h4 class="lowercase">When requests are made, and when responses begin and end.</h4>
+            <h4 class="lowercase">When requests are made, and when responses begin/end.</h4>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <img class="larger" src="img/cheeseball.gif" alt="Two men throwing cheeseballs in each others' mouths.">
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/request-response-2x.webp 2x, img/request-response-1x.webp 1x" type="image/webp">
+              <source srcset="img/request-response-2x.png 2x, img/request-response-1x.png 1x" type="image/png">
+              <img class="stretch" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome dev tools.">
+            </picture>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -273,18 +353,15 @@
           </section>
           <!-- [2.] -->
           <section data-state="centered">
-            <h3>Requests/Responses</h3>
-            <picture>
-              <source srcset="img/request-response-2x.webp 2x, img/request-response-1x.webp 1x" type="image/webp">
-              <source srcset="img/request-response-2x.png 2x, img/request-response-1x.png 1x" type="image/png">
-              <img class="stretch" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome dev tools.">
-            </picture>
-            <h2>visualized</h2>
+            <h2>Processing</h2>
+            <h4 class="lowercase">When the DOM is being processed.</h4>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
-            <h2>Processing</h2>
-            <h4 class="lowercase">When the DOM is being processed, including when the DOM is interactive and when processing starts/begins.</h4>
+            <picture>
+              <source srcset="img/baking.webp" type="image/webp">
+              <img class="stretch larger" src="img/baking.gif" alt="A time-lapse of cookies baking.">
+            </picture>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -306,7 +383,7 @@
             <h2 class="accent">Regarding</h2>
             <h3>Processing metrics (Cont'd)</h3>
             <ul>
-              <li class="fragment"><code>domInteractive</code>, <code>domContentLoadedEventStart</code>, and <code>domContentLoadedEventEnd</code> occur around the same time.</li>
+              <li class="fragment"><code>domInteractive</code> and <code>domContentLoadedEventStart</code> occur around the same time.</li>
               <li class="fragment">Depending on front end architecture complexity, <code>domComplete</code> often occurs some time after <code>domContentLoadedEventEnd</code>.</li>
             </ul>
           </section>
@@ -322,6 +399,13 @@
           <section data-state="centered">
             <h2>Load</h2>
             <h4 class="lowercase">When the page and all of its resources are fully loaded.</h4>
+          </section>
+          <!-- [2.] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/loading.webp" type="image/webp">
+              <img class="stretch larger" src="img/loading.gif" alt="A truck loading fail.">
+            </picture>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -342,7 +426,7 @@
         <section>
           <!-- [3.] -->
           <section>
-            <h1 class="accent">The little bits</h1>
+            <h1 class="accent">The little bits!</h1>
           </section>
           <!-- [3.] -->
           <section data-state="centered">
@@ -393,7 +477,7 @@
         <section>
           <!-- [4.] -->
           <section>
-            <h1 class="accent">Timing recipes</h1>
+            <h1 class="accent">Timing recipes!</h1>
           </section>
           <!-- [4.] -->
           <section data-state="centered">
@@ -477,20 +561,8 @@
           <!-- [5.] -->
           <section data-state="centered">
             <h3>
-              What <code>Server-Timing</code><br>
-              headers look like:
-            </h3>
-            <picture>
-              <source srcset="img/server-timing-headers-2x.webp 2x, img/server-timing-headers-1x.webp 1x" type="image/webp">
-              <source srcset="img/server-timing-headers-2x.png 2x, img/server-timing-headers-1x.png 1x" type="image/png">
-              <img class="stretch" src="img/server-timing-headers-1x.png" alt="An image of the server timing header.">
-            </picture>
-          </section>
-          <!-- [5.] -->
-          <section data-state="centered">
-            <h3>
               How <code>Server-Timing</code><br>
-              headers get visualized:
+              headers are visualized:
             </h3>
             <picture>
               <source srcset="img/server-timing-readout-2x.webp 2x, img/server-timing-readout-1x.webp 1x" type="image/webp">
@@ -571,7 +643,7 @@ observer.observe({
         <section>
           <!-- [6.] -->
           <section>
-            <h1 class="accent">Quick tips</h1>
+            <h1 class="accent">Quick tips!</h1>
           </section>
           <!-- [6.] -->
           <section data-state="centered">
@@ -601,7 +673,8 @@ if (&quot;performance&quot; in window) {
           </section>
           <!-- [6.] -->
           <section data-state="centered">
-            <h2>Use <code>PerformanceObserver</code></h2>
+            <h3 class="lowercase">Gather performance metrics with</h3>
+            <h2><code>PerformanceObserver</code></h2>
           </section>
           <!-- [6.] -->
           <section data-state="centered">
@@ -617,6 +690,86 @@ observer.observe({
   // Add performance entry types you want to observe here:
   entryTypes: [&quot;navigation&quot;, &quot;resource&quot;, &quot;paint&quot;, &quot;longtask&quot;]
 });</code></pre>
+          </section>
+        </section>
+        <!-- [7.0] -->
+        <section>
+          <!-- [7.] -->
+          <section>
+            <h1 class="accent">Wrapping up!</h1>
+          </section>
+          <!-- [7.] -->
+          <section data-state="section-slide centered">
+            <h1 class="accent">With thanks to:</h1>
+            <div class="people">
+              <div class="person">
+                <img src="img/people/estelle-weyl.jpg" alt="Estelle Weyl">
+                <p>
+                  Estelle Weyl<br>
+                  <a href="https://twitter.com/estellevw" rel="noopener">@estellevw</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/ilya-grigorik.jpg" alt="Ilya Grigorik">
+                <p>
+                  Ilya Grigorik<br>
+                  <a href="https://twitter.com/igrigorik" rel="noopener">@igrigorik</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/shubhie-panicker.jpg" alt="Shubhie Panicker">
+                <p>
+                  Shubhie Panicker<br>
+                  <a href="https://twitter.com/shubhie" rel="noopener">@shubhie</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/charles-vazac.jpg" alt="Charles Vazac">
+                <p>
+                  Charles Vazac<br>
+                  <a href="https://twitter.com/vazac" rel="noopener">@vazac</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/jatinder-mann.jpg" alt="Jatinder Mann">
+                <p>
+                  Jatinder Mann<br>
+                  <a href="https://twitter.com/jatindermann" rel="noopener">@jatindermann</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/domenic-denicola.jpg" alt="Domenic Denicola">
+                <p>
+                  Domenic Denicola<br>
+                  <a href="https://twitter.com/domenic" rel="noopener">@domenic</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/tobin-titus.jpg" alt="Tobin Titus">
+                <p>
+                  Tobin Titus<br>
+                  <a href="https://twitter.com/tobint" rel="noopener">@tobint</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/todd-reifsteck.jpg" alt="Todd Reifsteck">
+                <p>
+                  Todd Reifsteck<br>
+                  <a href="https://twitter.com/toddreifsteck" rel="noopener">@toddreifsteck</a>
+                </p>
+              </div>
+              <div class="person">
+                <img src="img/people/paul-irish.jpg" alt="Paul Irish">
+                <p>
+                  Paul Irish<br>
+                  <a href="https://twitter.com/paul_irish" rel="noopener">@paul_irish</a>
+                </p>
+              </div>
+            </div>
+          </section>
+          <!-- [7.] -->
+          <section>
+            <h1 class="accent">...and thank you!</h1>
           </section>
         </section>
       </div>
@@ -643,10 +796,6 @@ observer.observe({
             }
           }
         ]});
-
-        Reveal.addEventListener("despair", function() {
-          document.getElementById("despair").play();
-        });
     </script>
   </body>
 </html>
