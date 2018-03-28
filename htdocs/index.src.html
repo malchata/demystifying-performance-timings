@@ -24,7 +24,7 @@
               <h1 class="accent">Demystifying</h1>
               <h2>Performance timings</h2>
               <hr>
-              <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
+              <h4 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h4>
             </div>
           </section>
           <!-- [0.2] - Hello! -->
@@ -60,15 +60,6 @@
             <h4 class="lowercase"><em>Lighthouse</em></h4>
           </section>
           <!-- [1.4] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/grafana-2x.webp 2x, img/grafana-1x.webp 1x" type="image/webp">
-              <source srcset="img/grafana-2x.png 2x, img/grafana-1x.png 1x" type="image/png">
-              <img class="stretch" src="img/grafana-2x.png" alt="A screenshot of a Grafana dashboard graphing Sitespeed.io data.">
-            </picture>
-            <h4 class="lowercase"><em>sitespeed.io + Grafana</em></h4>
-          </section>
-          <!-- [1.5] -->
           <section>
             <h1 class="accent">The case for:</h1>
             <ul>
@@ -77,16 +68,16 @@
               <li class="fragment">Easy to measure the effect of code changes on performance due to consistent baselines.</li>
             </ul>
           </section>
-          <!-- [1.6] -->
+          <!-- [1.5] -->
           <section>
             <h1 class="accent">The case against:</h1>
             <h3 class="lowercase fragment">It doesn't necessarily reflect what <em>real users</em> are <em>experiencing</em>.</h3>
           </section>
-          <!-- [1.7] -->
+          <!-- [1.6] -->
           <section data-state="centered">
             <h1>Enter RUM</h1>
           </section>
-          <!-- [1.8] -->
+          <!-- [1.7] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/cheap-rum.webp" type="image/webp">
@@ -94,28 +85,28 @@
             </picture>
             <h3 class="lowercase fragment">(No, not <em>this</em>.)</h3>
           </section>
-          <!-- [1.9] -->
+          <!-- [1.8] -->
           <section data-state="centered">
             <h1><u>R</u>eal <u>U</u>ser <u>M</u>etrics</h1>
             <h3 class="lowercase fragment">(or <em>field data</em>)</h3>
           </section>
-          <!-- [1.10] -->
+          <!-- [1.9] -->
           <section>
             <h1 class="accent">The case for:</h1>
             <h3 class="lowercase fragment">You're gathering metrics from <em>real users</em> who are using your site/app.</h3>
           </section>
-          <!-- [1.11] -->
+          <!-- [1.10] -->
           <section>
             <h1 class="accent">The case against:</h1>
             <h3 class="lowercase fragment">It's not as convenient.</h3>
           </section>
-          <!-- [1.12] -->
+          <!-- [1.11] -->
           <section>
             <pre><code class="javascript">performance.getEntriesByType("navigation").forEach((navigation) => {
   console.dir(navigation);
 });</code></pre>
           </section>
-          <!-- [1.13] -->
+          <!-- [1.12] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/navigation-timing-2x.webp 2x, img/navigation-timing-1x.webp 1x" type="image/webp">
@@ -123,7 +114,7 @@
               <img src="img/navigation-timing-2x.png" alt="A screenshot of a navigation timing entry in Chrome.">
             </picture>
           </section>
-          <!-- [1.14] -->
+          <!-- [1.13] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/cry.webp" type="image/webp">
@@ -160,7 +151,7 @@
           <!-- [2.] -->
           <section data-state="centered">
             <h2>Unload</h2>
-            <h4 class="lowercase">When the document unloads. Triggered any time a navigation (successfully) kicks off.</h4>
+            <h4 class="lowercase">When the document unloads.</h4>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -187,7 +178,7 @@
           <!-- [2.] -->
           <section data-state="centered">
             <h2>Redirect</h2>
-            <h4 class="lowercase">When a navigation encounters one (or more) HTTP 300 level status codes, causing redirection.</h4>
+            <h4 class="lowercase">When a navigation encounters one (or more) HTTP 300 level status codes.</h4>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -222,7 +213,7 @@
           <!-- [2.] -->
           <section data-state="centered">
             <h2>App Cache</h2>
-            <h4 class="lowercase">When the browser <em>may</em> fetch items from a cache.</h4>
+            <h4 class="lowercase">When the browser begins to fetch an item.</h4>
           </section>
           <!-- [2.] -->
           <section data-state="centered">
@@ -241,7 +232,7 @@
             <h2 class="accent">Regarding</h2>
             <h3>App Cache metrics</h3>
             <ul>
-              <li class="fragment">Regardless of caching, <code>fetchStart</code> begins about the same time (varying baselines notwithstanding).</li>
+              <li class="fragment">Regardless of caching, <code>fetchStart</code> begins about the same time.</li>
               <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> (e.g., <code>connectStart</code>, et cetera) will occur very nearly after.</li>
             </ul>
           </section>
@@ -280,8 +271,14 @@
             <h2 class="accent">Regarding</h2>
             <h3>DNS metrics</h3>
             <ul>
-              <li class="fragment">DNS lookups happen once per origin per session.</li>
-              <li class="fragment">DNS lookups can be cached at multiple levels.</li>
+              <li class="fragment">DNS lookups can be cached at multiple levels:</li>
+              <ul>
+                <li class="fragment">Browser.</li>
+                <li class="fragment">System.</li>
+                <li class="fragment">Router.</li>
+                <li class="fragment">ISP.</li>
+                <li class="fragment"><em>et al.</em></li>
+              </ul>
             </ul>
           </section>
           <!-- [2.] -->
@@ -314,7 +311,7 @@
             <h2 class="accent">Regarding</h2>
             <h3>Connection metrics</h3>
             <ul>
-              <li class="fragment">Connection setup happens once per origin per session.</li>
+              <li class="fragment">Connections can be reused.</li>
               <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites.</li>
               <li class="fragment"><code>secureConnectionStart</code> can be <code>0</code> if TLS sessions are resumed.</li>
             </ul>
@@ -381,7 +378,7 @@
           <!-- [2.] -->
           <section>
             <h2 class="accent">Regarding</h2>
-            <h3>Processing metrics (Cont'd)</h3>
+            <h3>Processing metrics (<span class="lowercase"><em>continued</em></span>)</h3>
             <ul>
               <li class="fragment"><code>domInteractive</code> and <code>domContentLoadedEventStart</code> occur around the same time.</li>
               <li class="fragment">Depending on front end architecture complexity, <code>domComplete</code> often occurs some time after <code>domContentLoadedEventEnd</code>.</li>
@@ -495,13 +492,9 @@
           <section data-state="centered">
             <h2>Fetch speed <span class="lowercase"><em>(Mbps)</em></span></h2>
             <hr>
-            <pre><code class="javascript">let fetchSpeed = ((transferSize / (2**20)) / ((responseEnd - responseStart) / 1000)) * 8; // 9.0012 Mbps</code></pre>
-          </section>
-          <!-- [4.] -->
-          <section data-state="centered">
-            <h2>Compression ratio <span class="lowercase"><em>(%)</em></span></h2>
-            <hr>
-            <pre><code class="javascript">let compressionRatio = (decodedBodySize / encodedBodySize) * 100; // 156.2031%</code></pre>
+            <pre><code class="javascript">let fetchSpeed = (
+  (transferSize / (2**20)) / ((responseEnd - responseStart) / 1000)
+) * 8; // 9.0012 Mbps</code></pre>
           </section>
           <!-- [4.] -->
           <section data-state="centered">
@@ -525,7 +518,11 @@
           <section data-state="centered">
             <h2>SSL time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
-            <pre><code class="javascript">let sslTime = secureConnectionStart > 0 ? connectEnd - secureConnectionStart : 0; // 58.6002 ms</code></pre>
+            <pre><code class="javascript">let sslTime = 0;
+
+if(secureConnectionStart > 0) {
+  sslTime = connectEnd - secureConnectionStart; // 58.6002 ms
+}</code></pre>
           </section>
           <!-- [4.] -->
           <section data-state="centered">
@@ -594,14 +591,6 @@
             </picture>
           </section>
           <!-- [5.] -->
-          <section>
-            <h3>Paint timing metrics:</h3>
-            <ul>
-              <li class="fragment"><code>first-paint</code>: The first moment <em>anything</em> is painted to the browser window.</li>
-              <li class="fragment"><code>first-contentful-paint:</code> The first moment <em>meaningful</em> content is painted to the browser window.</li>
-            </ul>
-          </section>
-          <!-- [5.] -->
           <section data-state="centered">
             <h2>Long Tasks API</h2>
             <h4 class="lowercase">Logs activity that blocks the main thread for a long period of time.</h4>
@@ -625,7 +614,7 @@
 });
 
 observer.observe({
-  entryTypes: [&quot;longtask&quot;]
+  entryTypes: [&quot;longtask&quot;] // &lt;-- The good stuff
 });</code></pre>
             <h5 class="lowercase fragment"><em>*Will output nothing if no long tasks are detected after initializing the observer.</em></h5>
           </section>
@@ -768,8 +757,14 @@ observer.observe({
             </div>
           </section>
           <!-- [7.] -->
-          <section>
-            <h1 class="accent">...and thank you!</h1>
+          <section data-state="centered">
+            <h1 class="accent">Thanks!</h1>
+            <h3 class="lowercase">
+              <em>
+                Slides:<br>
+                <a href="http://jlwagner.net/talks/perf-timings" rel="noopener">jlwagner.net/talks/perf-timings</a>
+              </em>
+            </h3>
           </section>
         </section>
       </div>
@@ -781,7 +776,7 @@ observer.observe({
         history: true,
         controls: false,
         transition: "none",
-        progress: false,
+        // progress: false,
         viewDistance: 2,
         help: false,
         dependencies: [{
