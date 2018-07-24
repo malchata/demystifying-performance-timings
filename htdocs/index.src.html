@@ -6,11 +6,10 @@
     <meta name="robots" content="noindex, nofollow, nocache">
     <title>Demystifying Performance Timings</title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/mystifying.css?v=1">
+    <link rel="stylesheet" href="css/theme/mystifying.css?v=2">
     <link rel="stylesheet" href="lib/css/zenburn.css">
   </head>
   <body>
-    <a class="twitter" href="https://twitter.com/malchata" rel="noopener">@malchata</a>
     <div class="reveal">
       <div class="slides">
         <!-- [0.0] - Intro -->
@@ -24,11 +23,7 @@
               <h4 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h4>
             </div>
           </section>
-          <!-- [0.2] - Sponsor Logos -->
-          <section data-background="#ffffff" data-state="centered">
-            <img class="stretch" src="img/sponsor-logos.png" alt="Prairie Dev Con 2018 sponsors">
-          </section>
-          <!-- [0.3] - Hello! -->
+          <!-- [0.2] - Hello! -->
           <section>
             <div class="flex-item-container">
               <div>
@@ -65,47 +60,36 @@
             <h1 class="accent">The case for:</h1>
             <ul>
               <li class="fragment">It's <em>easy to do</em>.</li>
-              <li class="fragment">Great for spot checking performance in dev environments. <span class="fragment">(With network throttling, of course.)</span></li>
+              <li class="fragment">Great for spot checking performance in local dev environments. <span class="fragment">(With network throttling, of course.)</span></li>
               <li class="fragment">Easy to measure the effect of code changes on performance due to consistent baselines.</li>
             </ul>
           </section>
           <!-- [1.5] -->
           <section>
             <h1 class="accent">The case against:</h1>
-            <h3 class="lowercase fragment">It doesn't necessarily reflect what <em>real users</em> are <em>experiencing</em>.</h3>
+            <h3 class="lowercase fragment">It doesn't reflect what <em>real users</em> are experiencing.</h3>
           </section>
           <!-- [1.6] -->
           <section data-state="centered">
-            <h1>Enter RUM</h1>
-          </section>
-          <!-- [1.7] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/cheap-rum.webp" type="image/webp">
-              <img src="img/cheap-rum.png" alt="A bottle of cheap rum.">
-            </picture>
-            <h3 class="lowercase fragment">(No, not <em>this</em>.)</h3>
-          </section>
-          <!-- [1.8] -->
-          <section data-state="centered">
+            <h3>Enter</h3>
             <h1><u>R</u>eal <u>U</u>ser <u>M</u>etrics</h1>
             <h3 class="lowercase fragment">(or <em>field data</em>)</h3>
           </section>
-          <!-- [1.9] -->
+          <!-- [1.7] -->
           <section>
             <h1 class="accent">The case for:</h1>
-            <h3 class="lowercase fragment">You're gathering metrics from <em>real users</em> who are using your site/app.</h3>
+            <h3 class="lowercase fragment">You're gathering metrics from <em>real users</em> who are using your site.</h3>
           </section>
-          <!-- [1.10] -->
+          <!-- [1.8] -->
           <section>
             <h1 class="accent">The case against:</h1>
             <h3 class="lowercase fragment">It's not as convenient.</h3>
           </section>
-          <!-- [1.11] -->
+          <!-- [1.9] -->
           <section>
             <pre><code class="javascript">console.dir(performance.getEntriesByType("navigation")[0]);</code></pre>
           </section>
-          <!-- [1.12] -->
+          <!-- [1.10] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/navigation-timing-2x.webp 2x, img/navigation-timing-1x.webp 1x" type="image/webp">
@@ -113,7 +97,7 @@
               <img src="img/navigation-timing-2x.png" alt="A screenshot of a navigation timing entry in Chrome.">
             </picture>
           </section>
-          <!-- [1.13] -->
+          <!-- [1.11] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/cry.webp" type="image/webp">
@@ -154,17 +138,10 @@
           </section>
           <!-- [2.6] -->
           <section data-state="centered">
-            <picture>
-              <source srcset="img/unload.webp" type="image/webp">
-              <img class="larger stretch" src="img/unload.gif" alt="An animated GIF of a truck throwing stuff out the back using inertia.">
-            </picture>
-          </section>
-          <!-- [2.7] -->
-          <section data-state="centered">
             <h3>Unload</h3>
             <img src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
           </section>
-          <!-- [2.8] -->
+          <!-- [2.7] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h2>unload metrics</h2>
@@ -172,22 +149,14 @@
               <li class="fragment"><code>startTime</code> is always <code>0</code> for the current document.</li>
               <li class="fragment"><code>startTime</code> is greater than <code>0</code> for resources.</li>
               <li class="fragment"><code>unloadEventStart</code> may be <code>0</code> if there is no previous document, or if a previous document (or redirect) is not from the same origin.</li>
-              <li class="fragment"><code>unloadEventEnd</code> can overlap with other events (e.g., connect, redirect).</li>
             </ul>
           </section>
-          <!-- [2.9] -->
+          <!-- [2.8] -->
           <section data-state="centered">
             <h2>Redirect</h2>
             <h4 class="lowercase">When a navigation encounters one (or more) HTTP 300 level status codes.</h4>
           </section>
-          <!-- [2.10] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/cat-chasing-tail.webp" type="image/webp">
-              <img class="larger stretch" src="img/cat-chasing-tail.gif" alt="An animated GIF of a cat chasing its tail.">
-            </picture>
-          </section>
-          <!-- [2.11] -->
+          <!-- [2.9] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/redirect-2x.webp 2x, img/redirect-1x.webp 1x" type="image/webp">
@@ -195,13 +164,13 @@
               <img class="stretch" src="img/redirect-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
             </picture>
           </section>
-          <!-- [2.12] -->
+          <!-- [2.10] -->
           <section data-state="centered">
             <h3>Redirect*</h3>
             <img src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
             <h5 class="fragment lowercase"><em>*Resource timing API processing model <u>begins</u> here.</em></h5>
           </section>
-          <!-- [2.13] -->
+          <!-- [2.11] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Redirect metrics</h3>
@@ -210,48 +179,69 @@
               <li class="fragment">Redirects from and to other origins can still come up as <code>0</code> if the <code><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Timing-Allow-Origin" rel="noopener">Timing-Allow-Origin</a></code> header isn't set.</li>
             </ul>
           </section>
-          <!-- [2.14] -->
+          <!-- [2.12] -->
           <section data-state="centered">
-            <h2>App Cache</h2>
+            <h2>App Cache*</h2>
             <h4 class="lowercase">When the browser begins to fetch an item.</h4>
+            <h5 class="lowercase fragment"><em>*Technically a misnomer</em></h5>
           </section>
-          <!-- [2.15] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/fetch.webp" type="image/webp">
-              <img class="larger stretch" src="img/fetch.gif" alt="An animated GIF of a person pushing a dog along the floor toward a ball.">
-            </picture>
-          </section>
-          <!-- [2.16] -->
+          <!-- [2.13] -->
           <section data-state="centered">
             <h3>App Cache</h3>
             <img src="img/nav-timing-appcache.svg" alt="Navigation timing processing model diagram with the app cache phase highlighted.">
           </section>
-          <!-- [2.17] -->
+          <!-- [2.14] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>App Cache metrics</h3>
             <ul>
-              <li class="fragment"><code>fetchStart</code> signifies the start of a fetch for a resource (cache seek time included).</li>
-              <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> (e.g., <code>connectStart</code>, et cetera) will occur very nearly after.</li>
+              <li class="fragment"><code>fetchStart</code> marks the start of a resource fetch, including cache seek time.</li>
+              <li class="fragment">If an item is cached, metrics that come after <code>fetchStart</code> will occur very nearly after.</li>
             </ul>
           </section>
-          <!-- [2.18] -->
+          <!-- [2.15] -->
           <section data-state="centered">
             <h2>Cached <span class="lowercase">vs.</span> uncached</h2>
             <img class="stretch" src="img/appcache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached resources.">
           </section>
-          <!-- [2.19] -->
+          <!-- [2.16] -->
           <section data-state="centered">
             <h2>DNS</h2>
-            <h4 class="lowercase">When DNS lookups occur.</h4>
+            <h4 class="lowercase">When domain lookups occur.</h4>
+          </section>
+          <!-- [2.17] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
+              <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
+              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
+            </picture>
+          </section>
+          <!-- [2.18] -->
+          <section data-state="centered">
+            <h3>DNS</h3>
+            <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
+          </section>
+          <!-- [2.19] -->
+          <section>
+            <h2 class="accent">Regarding</h2>
+            <h3>DNS metrics</h3>
+            <ul>
+              <li class="fragment">
+                DNS lookups can be cached at multiple levels:<br>
+                <ul>
+                  <li class="fragment">Browser (<em>e.g.,</em> <code>chrome://net-internals#dns</code>).</li>
+                  <li class="fragment">System.</li>
+                  <li class="fragment">Router.</li>
+                  <li class="fragment">(Basically anywhere.)</li>
+                </ul>
+              </li>
+            </ul>
           </section>
           <!-- [2.20] -->
           <section data-state="centered">
-            <picture>
-              <source srcset="img/gandalf.webp" type="image/webp">
-              <img src="img/gandalf.jpg" alt="Gandalf reading out of a giant book.">
-            </picture>
+            <h2>Connection</h2>
+            <h4 class="lowercase">When connections are established.</h4>
           </section>
           <!-- [2.21] -->
           <section data-state="centered">
@@ -263,68 +253,24 @@
           </section>
           <!-- [2.22] -->
           <section data-state="centered">
-            <h3>DNS</h3>
-            <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
+            <h3>Connection</h3>
+            <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
           </section>
           <!-- [2.23] -->
           <section>
             <h2 class="accent">Regarding</h2>
-            <h3>DNS metrics</h3>
+            <h3>Connection metrics</h3>
             <ul>
-              <li class="fragment">DNS lookups can be cached at multiple levels:</li>
-              <ul>
-                <li class="fragment">Browser.</li>
-                <li class="fragment">System.</li>
-                <li class="fragment">Router.</li>
-                <li class="fragment">ISP.</li>
-              </ul>
+              <li class="fragment">Connections can be resumed (i.e., <code>Keep-Alive</code>).</li>
+              <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites <span class="fragment"><em>or</em> if TLS sessions are resumed.</span></li>
             </ul>
           </section>
           <!-- [2.24] -->
           <section data-state="centered">
-            <h2>Connection</h2>
-            <h4 class="lowercase">When connections are established.</h4>
-          </section>
-          <!-- [2.25] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/handshake.webp" type="image/webp">
-              <img class="stretch larger" src="img/handshake.jpg" alt="An animated GIF of two men performing an awkward secret handshake.">
-            </picture>
-          </section>
-          <!-- [2.26] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
-              <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
-              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
-            </picture>
-          </section>
-          <!-- [2.27] -->
-          <section data-state="centered">
-            <h3>Connection</h3>
-            <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
-          </section>
-          <!-- [2.28] -->
-          <section>
-            <h2 class="accent">Regarding</h2>
-            <h3>Connection metrics</h3>
-            <ul>
-              <li class="fragment">Connections can be reused.</li>
-              <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites.</li>
-              <li class="fragment"><code>secureConnectionStart</code> can be <code>0</code> if TLS sessions are resumed.</li>
-            </ul>
-          </section>
-          <!-- [2.29] -->
-          <section data-state="centered">
             <h2>Request/Response</h2>
             <h4 class="lowercase">When requests are made, and when responses begin/end.</h4>
           </section>
-          <!-- [2.30] -->
-          <section data-state="centered">
-            <img class="larger" src="img/cheeseball.gif" alt="An animated GIF of two men throwing cheeseballs in each others' mouths.">
-          </section>
-          <!-- [2.31] -->
+          <!-- [2.25] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/request-response-2x.webp 2x, img/request-response-1x.webp 1x" type="image/webp">
@@ -332,30 +278,23 @@
               <img class="stretch" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome dev tools.">
             </picture>
           </section>
-          <!-- [2.32] -->
+          <!-- [2.26] -->
           <section data-state="centered">
             <h3>Request/Response*</h3>
             <img src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
             <h5 class="fragment lowercase"><em>*Resource timing API processing model <u>ends</u> here.</em></h5>
           </section>
-          <!-- [2.33] -->
+          <!-- [2.27] -->
           <section data-state="centered">
             <h2>Processing</h2>
             <h4 class="lowercase">When the DOM is being processed.</h4>
           </section>
-          <!-- [2.34] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/baking.webp" type="image/webp">
-              <img class="stretch larger" src="img/baking.gif" alt="A time-lapse of cookies baking.">
-            </picture>
-          </section>
-          <!-- [2.35] -->
+          <!-- [2.28] -->
           <section data-state="centered">
             <h3>Processing</h3>
             <img src="img/nav-timing-processing.svg" alt="Navigation timing processing model diagram with the processing phase highlighted.">
           </section>
-          <!-- [2.36] -->
+          <!-- [2.29] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Processing metrics</h3>
@@ -365,16 +304,7 @@
               <li class="fragment"><code>domComplete</code> marks when everything has loaded.</li>
             </ul>
           </section>
-          <!-- [2.37] -->
-          <section>
-            <h2 class="accent">Regarding</h2>
-            <h3>Processing metrics (<span class="lowercase"><em>continued</em></span>)</h3>
-            <ul>
-              <li class="fragment">Depending on front end architecture complexity, <code>domComplete</code> often occurs some time after <code>domContentLoadedEventEnd</code>.</li>
-              <li class="fragment"><code>domComplete</code> is functionally the same as the load event metrics.</li>
-            </ul>
-          </section>
-          <!-- [2.38] -->
+          <!-- [2.30] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/dom-metrics-2x.webp 2x, img/dom-metrics-1x.webp 1x" type="image/webp">
@@ -382,24 +312,17 @@
               <img class="stretch" src="img/dom-metrics-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
             </picture>
           </section>
-          <!-- [2.39] -->
+          <!-- [2.31] -->
           <section data-state="centered">
             <h2>Load</h2>
             <h4 class="lowercase">When the page and all of its resources are fully loaded.</h4>
           </section>
-          <!-- [2.40] -->
-          <section data-state="centered">
-            <picture>
-              <source srcset="img/loading.webp" type="image/webp">
-              <img class="stretch larger" src="img/loading.gif" alt="A truck loading fail.">
-            </picture>
-          </section>
-          <!-- [2.] -->
+          <!-- [2.32] -->
           <section data-state="centered">
             <h3>Load</h3>
             <img src="img/nav-timing-load.svg" alt="Navigation timing processing model diagram with the load phase highlighted.">
           </section>
-          <!-- [2.41] -->
+          <!-- [2.33] -->
           <section>
             <h2 class="accent">Regarding</h2>
             <h3>Load metrics</h3>
@@ -457,7 +380,6 @@
               <li class="fragment"><code>hq</code> (QUIC)</li>
               <li class="fragment"><code>http/1.1</code></li>
             </ul>
-            <h4 class="fragment lowercase"><em>*This is probably not exhaustive!</em></h4>
           </section>
         </section>
         <!-- [4.0] -->
@@ -470,45 +392,35 @@
           <section data-state="centered">
             <h2>TTFB <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
-            <pre><code class="javascript">let ttfb = responseStart - requestStart; // 35.6001 ms</code></pre>
+            <pre><code class="javascript">let ttfb = responseStart - fetchStart; // 35.6001 ms</code></pre>
           </section>
           <!-- [4.3] -->
-          <section data-state="centered">
-            <h2>Resource fetch time <span class="lowercase"><em>(ms)</em></span></h2>
-            <hr>
-            <pre><code class="javascript">let fetchTime = responseEnd - fetchStart; // 512.3021 ms</code></pre>
-          </section>
-          <!-- [4.4] -->
           <section data-state="centered">
             <h2>Header size <span class="lowercase"><em>(bytes)</em></span></h2>
             <hr>
             <pre><code class="javascript">let headerSize = transferSize - encodedBodySize; // 169 bytes</code></pre>
           </section>
-          <!-- [4.5] -->
+          <!-- [4.4] -->
           <section data-state="centered">
             <h2>DNS lookup time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
             <pre><code class="javascript">let dnsTime = domainLookupEnd - domainLookupStart; // 171.2999 ms</code></pre>
           </section>
-          <!-- [4.6] -->
+          <!-- [4.5] -->
           <section data-state="centered">
             <h2>TCP time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
             <pre><code class="javascript">let tcpTime = connectEnd - connectStart; // 93.5005 ms</code></pre>
           </section>
-          <!-- [4.7] -->
+          <!-- [4.6] -->
           <section data-state="centered">
             <h2>SSL time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
-            <pre><code class="javascript">sslTime = secureConnectionStart > 0 ?
-          secureConnectionStart :
-          0; // 58.6002 ms</code></pre>
-          </section>
-          <!-- [4.8] -->
-          <section data-state="centered">
-            <h2>DOM processing time <span class="lowercase"><em>(ms)</em></span></h2>
-            <hr>
-            <pre><code class="javascript">let domTime = domComplete - domInteractive; // 276.6999 ms</code></pre>
+            <pre><code class="javascript">let sslTime = 0;
+
+if (secureConnectionStart &gt; 0) {
+  sslTime = connectEnd - secureConnectionStart; // 58.6002 ms
+}</code></pre>
           </section>
         </section>
         <!-- [5.0] -->
@@ -550,13 +462,13 @@
           <!-- [5.5] -->
           <section data-state="centered">
             <h2>Paint Timing API</h2>
-            <h4 class="lowercase">Exposes first paint and first meaningful paint timings.</h4>
-            <h5 class="lowercase"><em><a href="https://www.w3.org/TR/paint-timing/" rel="noopener">w3.org/TR/paint-timing</a></em><h5>
+            <h4 class="lowercase">Exposes paint timings.</h4>
+            <h5 class="lowercase"><em><a href="https://www.w3.org/TR/paint-timing/" rel="noopener">w3.org/TR/paint-timing</a></em></h5>
           </section>
           <!-- [5.6] -->
           <section data-state="centered">
             <h3>Try it in the console*:</h3>
-            <pre><code class="javascript">performance.getEntriesByType(&quot;paint&quot;).forEach((paint) => {
+            <pre><code class="javascript">performance.getEntriesByType(&quot;paint&quot;).forEach(paint =&gt; {
   console.dir(paint);
 });</code></pre>
             <h5 class="lowercase fragment"><em>*Currently only in Chrome</em></h5>
@@ -578,7 +490,7 @@
           </section>
           <!-- [5.9] -->
           <section data-state="centered">
-            <h3>What is a &quot;long task&quot;?
+            <h3>What is a &quot;long task&quot;?</h3>
             <blockquote cite="https://w3c.github.io/longtasks/#sec-terminology">
               &ldquo;<strong>Long task</strong> refers to an event loop that exceeds 50ms.&rdquo;<br>
               <cite>&mdash; <a href="https://w3c.github.io/longtasks/#sec-terminology" rel="noopener">Long Tasks Spec, &sect; 2.</a></cite>
@@ -588,7 +500,8 @@
           <section data-state="centered">
             <pre><code class="javascript">var observer = new PerformanceObserver(function(list) {
   var perfEntries = list.getEntries();
-  for (var i = 0; i &lt; perfEntries.length; i++) {
+
+  for (let i = 0; i &lt; perfEntries.length; i++) {
     console.dir(perfEntries[i]);
   }
 });
@@ -622,11 +535,10 @@ observer.observe({
           <!-- [6.3] -->
           <section>
             <h1 class="accent">The case against</h1>
-            <h3><code>performance.timing</h3></h3>
+            <h3><code>performance.timing</code></h3>
             <ul>
-              <li>It's technically obsolete.</li>
-              <li>Uses Unix timestamps.</li>
-              <li>Timings are low resolution.</li>
+              <li class="fragment">Technically obsolete.</li>
+              <li class="fragment">Uses low resolution Unix timestamps.</li>
             </ul>
           </section>
           <!-- [6.4] -->
@@ -635,23 +547,23 @@ observer.observe({
               Don't record<br>
               computed metrics
             </h2>
-            <h4 class="fragment lowercase"><em>(Unless you know what you're doing)</em></h4>
+            <h4 class="fragment lowercase"><em>(Unless you know what you're doing.)</em></h4>
           </section>
           <!-- [6.5] -->
           <section data-state="centered">
             <h2>Always feature check:</h2>
             <pre><code class="javascript">// Check if we can do performance-y things
 if (&quot;performance&quot; in window) {
-  if (performance.getEntriesByType("navigation").length > 0) {
-    // Do things with navigation timing
+  if (performance.getEntriesByType(&quot;navigation&quot;).length > 0) {
+    // Do stuff with navigation timing
   }
 
-  if (performance.getEntriesByType("resource").length > 0) {
-    // Do things with resource timing
+  if (performance.getEntriesByType(&quot;resource&quot;).length > 0) {
+    // Do stuff with resource timing
   }
 
-  if (performance.getEntriesByType("paint").length > 0) {
-    // Do things with paint timing
+  if (performance.getEntriesByType(&quot;paint&quot;).length > 0) {
+    // Do stuff with paint timing
   }
 }</code></pre>
           </section>
@@ -663,9 +575,10 @@ if (&quot;performance&quot; in window) {
           <!-- [6.7] -->
           <section data-state="centered">
             <h3>Using <code>PerformanceObserver</code></h3>
-            <pre><code class="javascript">var observer = new PerformanceObserver(function(list) {
+            <pre><code class="javascript">var observer = new PerformanceObserver(list => {
   var perfEntries = list.getEntries();
-  for (var i = 0; i &lt; perfEntries.length; i++) {
+
+  for (let i = 0; i &lt; perfEntries.length; i++) {
     // Do stuff with whatever comes in
   }
 });
@@ -679,10 +592,57 @@ observer.observe({
         <!-- [7.0] -->
         <section>
           <!-- [7.1] -->
+          <section data-state="centered">
+            <picture>
+              <source srcset="img/understand-nothing.webp" type="image/webp">
+              <img src="img/understand-nothing.png" alt="A picture of Michael Scott from The Office saying he doesn't understand anything.">
+            </picture>
+            <h2 class="accent">&quot;This is a <u>lot</u> to remember.&quot;</h2>
+          </section>
+          <!-- [7.2] -->
+          <section data-state="centered">
+            <img class="mediumish" src="img/appd.svg" alt="AppDynamics Logo">
+            <h3>End User Monitoring</h3>
+          </section>
+          <!-- [7.3] -->
+          <section data-state="centered">
+            <h3>End User Monitoring</h3>
+            <picture>
+              <source srcset="img/appd-eum-overview-2x.webp 2x, img/appd-eum-overview-1x.webp 1x" type="image/webp">
+              <img class="stretch" src="img/appd-eum-overview-1x.png" srcset="img/appd-eum-overview-2x.png 2x, img/appd-eum-overview-1x.png 1x" alt="An overview of metrics in the AppDynamics end-user monitoring product.">
+            </picture>
+            <h4 class="lowercase"><em>Get a high level view of real user performance.</em></h4>
+          </section>
+          <!-- [7.4] -->
+          <section data-state="centered">
+            <h3>End User Monitoring</h3>
+            <picture>
+              <source srcset="img/appd-timing-breakdown-2x.webp 2x, img/appd-timing-breakdown-1x.webp 1x" type="image/webp">
+              <img class="stretch" src="img/appd-timing-breakdown-1x.png" srcset="img/appd-timing-breakdown-2x.png 2x, img/appd-timing-breakdown-1x.png 1x" alt="A breakdown of timings in the AppDynamics end-user monitoring product.">
+            </picture>
+            <h4 class="lowercase"><em>Visualize specific real user metrics.</em></h4>
+          </section>
+          <!-- [7.5] -->
+          <section data-state="centered">
+            <h3>End User Monitoring</h3>
+            <picture>
+              <source srcset="img/appd-low-level-2x.webp 2x, img/appd-low-level-1x.webp 1x" type="image/webp">
+              <img class="stretch" src="img/appd-low-level-1x.png" srcset="img/appd-low-level-2x.png 2x, img/appd-low-level-1x.png 1x" alt="A low level view RUM data over time in the AppDynamics end-user monitoring product.">
+            </picture>
+            <h4 class="lowercase"><em>Plot low level timing data per category over time.</em></h4>
+          </section>
+          <section data-state="centered">
+            <img class="mediumish" src="img/appd.svg" alt="AppDynamics Logo">
+            <h3 class="lowercase"><em><a href="https://www.appdynamics.com/" rel="noopener">appdynamics.com</a></em></h3>
+          </section>
+        </section>
+        <!-- [8.0] -->
+        <section>
+          <!-- [8.1] -->
           <section>
             <h1 class="accent">Wrapping up!</h1>
           </section>
-          <!-- [7.2] -->
+          <!-- [8.2] -->
           <section data-state="section-slide centered">
             <h1 class="accent">With thanks to:</h1>
             <div class="people">
@@ -751,13 +711,13 @@ observer.observe({
               </div>
             </div>
           </section>
-          <!-- [7.3] -->
+          <!-- [8.3] -->
           <section data-state="centered">
             <h1 class="accent">Thanks!</h1>
             <h3 class="lowercase">
               <em>
                 Slides:<br>
-                <a href="http://jlwagner.net/talks/perf-timings" rel="noopener">jlwagner.net/talks/perf-timings</a>
+                <a href="https://jlwagner.net/talks/perf-timings-appd" rel="noopener">jlwagner.net/talks/perf-timings-appd</a>
               </em>
             </h3>
           </section>
@@ -771,7 +731,6 @@ observer.observe({
         history: true,
         controls: false,
         transition: "none",
-        // progress: false,
         viewDistance: 2,
         help: false,
         dependencies: [{

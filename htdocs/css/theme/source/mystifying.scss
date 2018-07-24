@@ -38,61 +38,61 @@ $heading5Size: .7864395513em;
 // Theme template
 @import "../template/theme";
 
-.reveal{
-  .progress{
+.reveal {
+  .progress {
     background: $smokyBlack;
 
-    span{
+    span {
       background: $terraCotta;
     }
   }
 
   code,
-  pre{
+  pre {
     font-family: "Consolas", monospace;
   }
 
-  pre{
+  pre {
     width: 100%;
   }
 
-  .slides{
-    section{
+  .slides {
+    section {
       text-align: left;
 
-      .fragment{
+      .fragment {
         transition: none;
       }
     }
   }
 
-  section{
-    a{
+  section {
+    a {
       color: $vistaBlue;
       text-decoration: underline;
 
-      &:hover{
+      &:hover {
         color: $terraCotta;
       }
     }
 
-    h1{
+    h1 {
       font-size: $heading1Size;
     }
 
-    h2{
+    h2 {
       font-size: $heading2Size;
     }
 
-    h3{
+    h3 {
       font-size: $heading3Size;
     }
 
-    h4{
+    h4 {
       font-size: $heading4Size;
     }
 
-    h5{
+    h5 {
       font-size: $heading5Size;
     }
 
@@ -100,18 +100,18 @@ $heading5Size: .7864395513em;
     h2,
     h3,
     h4,
-    h5{
+    h5 {
       line-height: 1.309;
       text-align: left;
       font-weight: 400;
       margin: 0;
 
-      code{
+      code {
         text-transform: none;
       }
     }
 
-    blockquote{
+    blockquote {
       background: none;
       color: $isabelline;
       text-align: left;
@@ -123,12 +123,12 @@ $heading5Size: .7864395513em;
       text-transform: none;
       border-left: .125em solid transparentize($terraCotta, .25);
 
-      code{
+      code {
         font-style: normal;
         font-size: .9em;
       }
 
-      cite{
+      cite {
         text-align: right;
         display: block;
         font-size: 0.8333333333em;
@@ -136,92 +136,96 @@ $heading5Size: .7864395513em;
       }
     }
 
-    .accent{
+    .accent {
       font-family: $accentFont;
       text-transform: none;
       color: $terraCotta;
     }
 
-    h3 + pre{
+    h3 + pre {
       margin: .5em 0 1.5em;
     }
 
-    ul{
+    ul {
       align-self: center;
 
-      li{
+      li {
         color: $isabelline;
         margin-bottom: .5em;
 
-        &:first-child{
+        &:first-child {
           margin-top: .5em;
         }
       }
     }
 
-    li{
+    li {
       font-family: $mainFont;
       line-height: 1.2;
       color: $mainColor;
     }
 
-    svg{
+    svg {
       max-width: 100%;
       margin: .234375em 0;
     }
 
     img,
-    video{
+    video {
       border: 0;
       background: transparent;
       box-shadow: none;
 
-      &.diagram{
+      &.diagram {
         transform: scale(1.04);
       }
 
-      &.full{
+      &.full {
         width: 100%;
       }
 
-      &.medium{
+      &.medium {
         width: 50%;
       }
 
-      &.larger{
+      &.mediumish {
+        width: percentage(2 / 3);
+      }
+
+      &.larger {
         width: 100%;
         max-width: 60%;
       }
     }
 
-    .flex-item-container{
+    .flex-item-container {
       display: flex;
       justify-content: space-around;
       align-items: center;
       align-content: center;
 
-      & > *{
+      & > * {
         width: 48.75%;
         height: auto;
       }
     }
 
-    .lowercase{
+    .lowercase {
       text-transform: none;
     }
 
-    .nowrap{
+    .nowrap {
       white-space: nowrap;
     }
   }
 
-  picture{
-    & > .stretch{
+  picture {
+    & > .stretch {
       width: 100%;
     }
   }
 
-  blockquote{
+  blockquote {
     background: none;
     color: $isabelline;
     text-align: left;
@@ -231,12 +235,12 @@ $heading5Size: .7864395513em;
     padding: 0 0 0 1em;
     border-left: .125em solid transparentize($terraCotta, .25);
 
-    code{
+    code {
       font-style: normal;
       font-size: .9em;
     }
 
-    cite{
+    cite {
       text-align: right;
       display: block;
       font-size: 0.8333333333em;
@@ -244,44 +248,44 @@ $heading5Size: .7864395513em;
     }
   }
 
-  table{
+  table {
     width: 100%;
     border-collapse: collapse;
     margin: .5em 0 0;
   }
 
-  th{
-    code{
+  th {
+    code {
       font-weight: 400;
     }
   }
 
-  hr{
+  hr {
     border-style: none;
     border-top: 1px solid $isabelline;
     margin: .25em 0;
     opacity: 0.5;
   }
 
-  .people{
+  .people {
     display: flex;
     justify-content: space-between;
     flex-flow: row wrap;
   }
 
-  .person{
+  .person {
     width: 32.6666666667%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    p{
+    p {
       font-size: .625em;
       width: calc(100% - 90px);
       text-align: left;
     }
 
-    img{
+    img {
       border-radius: 50%;
       border: 2px solid $isabelline;
       width: 75px;
@@ -289,24 +293,10 @@ $heading5Size: .7864395513em;
   }
 }
 
-body{
+body {
   background: $smokyBlack;
 
-  a.twitter{
-    color: $terraCotta;
-    font-family: $headingFont;
-    bottom: 1.5%;
-    right: 1%;
-    z-index: 2;
-    font-size: 1.875em;
-    font-size: 2.375vmax;
-    line-height: 1;
-    display: block;
-    position: fixed;
-    text-decoration: none;
-  }
-
-  &:after{
+  &:after {
     position: fixed;
     content: "";
     font-size: 0;
@@ -322,32 +312,32 @@ body{
   }
 }
 
-.title-card body{
-  .title-container{
-    > *:last-child{
+.title-card body {
+  .title-container {
+    > *:last-child {
       padding-bottom: 0;
     }
 
-    > *:first-child{
+    > *:first-child {
       padding-top: 0;
     }
   }
 }
 
-.centered body{
+.centered body {
   h1,
   h2,
   h3,
   h4,
   h5,
   li,
-  p{
+  p {
     text-align: center;
   }
 
-  .reveal{
-    .slides{
-      section{
+  .reveal {
+    .slides {
+      section {
         text-align: center;
       }
     }
