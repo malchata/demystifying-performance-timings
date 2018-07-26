@@ -157,6 +157,33 @@ $heading5Size: .7864395513em;
           margin-top: .5em;
         }
       }
+
+      &.emoji-list {
+        margin-left: 0;
+        list-style: none;
+
+        li {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: baseline;
+
+          &:before {
+            margin-right: .5em;
+          }
+
+          &.check {
+            &:before {
+              content: "✅";
+            }
+          }
+
+          &.x {
+            &:before {
+              content: "🚫";
+            }
+          }
+        }
+      }
     }
 
     li {

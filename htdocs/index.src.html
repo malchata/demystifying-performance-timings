@@ -18,17 +18,22 @@
           <section data-state="title-card">
             <div class="title-container">
               <h1 class="accent">Demystifying</h1>
-              <h2>Performance timings</h2>
+              <h2>
+                Navigation <em class="lowercase">and</em><br>
+                resource timing
+              </h2>
               <hr>
-              <h4 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://twitter.com/malchata" rel="noopener">@malchata</a> &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h4>
+              <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
             </div>
           </section>
           <!-- [0.2] - Hello! -->
           <section>
             <div class="flex-item-container">
-              <div>
-                <h1 class="accent">Hello,</h1>
-                <h3 class="lowercase">I'm Jeremy!</h3>
+              <div style="display: flex; flex-flow: column nowrap; align-items: center; justify-content: center;">
+                <h2 class="accent">Hello,</h2>
+                <h2 class="lowercase">I'm Jeremy!</h2>
+                <hr>
+                <img src="img/appd.svg" alt="AppDynamics Logo" class="larger">
               </div>
               <img src="img/me.jpg" alt="Jeremy Wagner speaking at a conference.">
             </div>
@@ -44,7 +49,7 @@
           <!-- [1.2] -->
           <section data-state="centered">
             <h1>Synthetic testing</h1>
-            <h3 class="lowercase fragment">(or <em>lab data</em>)</h3>
+            <h3 class="fragment lowercase">(or <em>lab data</em>)</h3>
           </section>
           <!-- [1.3] -->
           <section data-state="centered">
@@ -68,36 +73,53 @@
           <!-- [1.5] -->
           <section>
             <h1 class="accent">The case for:</h1>
-            <ul>
-              <li class="fragment">Great for testing performance in local dev environments. <span class="fragment">(With network throttling, of course.)</span></li>
-              <li class="fragment">Easy to measure the effect of code changes on performance.</li>
+            <ul class="emoji-list">
+              <li class="check fragment">
+                <div>It's the easiest way to quantify performance.</div>
+              </li>
+              <li class="check fragment">
+                <div>Easy to measure the effect of code changes on performance in dev environments.</div>
+              </li>
             </ul>
           </section>
           <!-- [1.6] -->
           <section>
-            <h1 class="accent">The problem:</h1>
-            <h3 class="lowercase fragment">It doesn't reflect what <em>real users</em> are experiencing.</h3>
+            <h1 class="accent">The caveat:</h1>
+            <ul class="emoji-list">
+              <li class="x fragment">
+                <div>It doesn't reflect what <em>real users</em> are experiencing.</div>
+              </li>
+            </ul>
           </section>
           <!-- [1.7] -->
           <section data-state="centered">
-            <h3>Enter</h3>
+            <h3 class="lowercase"><em>Enter</em></h3>
+            <h1>RUM</h1>
+            <h1 class="fragment lowercase">🍹</h1>
+          </section>
+          <!-- [1.8] -->
+          <section data-state="centered">
             <h2><u>R</u>eal <u>U</u>ser <u>M</u>onitoring</h2>
             <h3 class="lowercase fragment">(or <em>field data</em>)</h3>
           </section>
           <!-- [1.8] -->
           <section>
-            <h1 class="accent">What RUM solves:</h1>
-            <h3 class="lowercase fragment">RUM gathers non-synthetic metrics.</h3>
+            <h1 class="accent">The case for:</h1>
+            <ul class="emoji-list">
+              <li class="check fragment">
+                <div>RUM reflects performance as experienced by your site's <em>real users</em>.</div>
+              </li>
+            </ul>
           </section>
           <!-- [1.9] -->
           <section>
-            <h1 class="accent">The problem:</h1>
+            <h1 class="accent">The caveat:</h1>
             <h3 class="lowercase fragment">It's <em>hard to do</em>.</h3>
           </section>
           <!-- [1.10] -->
           <section>
             <pre><code class="javascript">// Doesn't look _that_ hard, right?
-performance.getEntriesByType("navigation");</code></pre>
+performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
           </section>
           <!-- [1.11] -->
           <section data-state="centered">
@@ -117,27 +139,31 @@ performance.getEntriesByType("navigation");</code></pre>
           </section>
           <!-- [1.13] -->
           <section data-state="centered">
-            <h3 class="lowercase"><em>If it is so hard to do,</em></h3>
+            <h3 class="lowercase">If it's so hard to do,</h3>
             <h2>Then why do it?</h2>
+            <h1><span class="fragment">💸</span> <span class="fragment">👀</span></h1>
           </section>
         </section>
         <!-- [2.0] -->
         <section>
-          <!-- [2.1] -->
-          <section data-state="centered">
-            <h1 class="accent">Navigation</h1>
-            <h2 class="accent">and</h2>
-            <h1 class="accent">Resource Timing</h1>
-          </section>
           <!-- [2.2] -->
           <section>
             <h1 class="accent">Navigation timing</h1>
-            <h3>Gathers page metrics.</h3>
+            <h3 class="lowercase fragment">Gathers metrics for <em><u>documents</u></em>.</h3>
           </section>
           <!-- [2.3] -->
           <section>
             <h1 class="accent">Resource timing</h1>
-            <h3>Gathers resource metrics.</h3>
+            <h3 class="lowercase">Gathers metrics for <em><u>resources</u></em>.</h3>
+          </section>
+          <!-- [2.3] -->
+          <section data-state="centered">
+            <h3>How to access timings:</h3>
+            <pre><code class="javascript">// Get navigation timing entries
+performance.getEntriesByType(&quot;navigation&quot;);
+
+// Get resource timing entries
+performance.getEntriesByType(&quot;resource&quot;);</code></pre>
           </section>
           <!-- [2.4] -->
           <section data-state="centered">
@@ -153,24 +179,16 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.6] -->
           <section data-state="centered">
             <h3>Unload Phase</h3>
-            <img src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
-          </section>
-          <!-- [2.7] -->
-          <section>
-            <h1 class="accent">RUM Trivia:</h1>
-            <ul>
-              <li><code>startTime</code> is always <code>0</code> for the current document.</li>
-              <li class="fragment"><code>startTime</code> is greater than <code>0</code> for resources.</li>
-              <li class="fragment"><code>unloadEventStart</code> may be <code>0</code> if there is no previous document to unload (i.e., <code>about:blank</code>).</li>
-            </ul>
+            <img style="max-height: 6em;" src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
           </section>
           <!-- [2.8] -->
           <section data-state="centered">
             <h2>Redirect Phase</h2>
-            <h4 class="lowercase">When a navigation encounters one (or more) HTTP 300 level status codes.</h4>
+            <h4 class="lowercase">When a request encounters at least one HTTP 300 level status code.</h4>
           </section>
           <!-- [2.9] -->
           <section data-state="centered">
+            <h3>Redirects can be costly!</h3>
             <picture>
               <source srcset="img/redirect-2x.webp 2x, img/redirect-1x.webp 1x" type="image/webp">
               <source srcset="img/redirect-2x.png 2x, img/redirect-1x.png 1x" type="image/png">
@@ -180,7 +198,7 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.10] -->
           <section data-state="centered">
             <h3>Redirect Phase</h3>
-            <img src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
+            <img style="max-height: 6em;" src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
             <h5 class="fragment lowercase"><em>Resource timing API processing model <u>begins</u> here.</em></h5>
           </section>
           <!-- [2.11] -->
@@ -191,7 +209,7 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.12] -->
           <section data-state="centered">
             <h3>Cache Seek Phase</h3>
-            <img src="img/nav-timing-cache.svg" alt="Navigation timing processing model diagram with the cache phase highlighted.">
+            <img style="max-height: 6em;" src="img/nav-timing-cache.svg" alt="Navigation timing processing model diagram with the cache phase highlighted.">
           </section>
           <!-- [2.13] -->
           <section data-state="centered">
@@ -214,7 +232,7 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.16] -->
           <section data-state="centered">
             <h3>DNS</h3>
-            <img src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
+            <img style="max-height: 6em;" src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
           </section>
           <!-- [2.17] -->
           <section>
@@ -247,20 +265,20 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.20] -->
           <section data-state="centered">
             <h3>Connection Phase</h3>
-            <img src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
+            <img style="max-height: 8em;" src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
           </section>
           <!-- [2.21] -->
           <section>
             <h1 class="accent">RUM Trivia:</h1>
             <ul>
-              <li class="fragment">Connections can be resumed (i.e., <code>Keep-Alive</code>).</li>
+              <li class="fragment">Connections can be reused (i.e., <code>Keep-Alive</code>).</li>
               <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites <span class="fragment"><em>or</em> if TLS sessions are resumed.</span></li>
             </ul>
           </section>
           <!-- [2.22] -->
           <section data-state="centered">
             <h2>Request/Response Phase</h2>
-            <h4 class="lowercase">When requests are made, and when responses begin/end.</h4>
+            <h4 class="lowercase">When requests are made, and when responses arrive.</h4>
           </section>
           <!-- [2.23] -->
           <section data-state="centered">
@@ -273,8 +291,8 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.24] -->
           <section data-state="centered">
             <h3>Request/Response Phase</h3>
-            <img src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
-            <h5 class="fragment lowercase"><em>*Resource timing API processing model <u>ends</u> here.</em></h5>
+            <img style="max-height: 8em;" src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
+            <h5 class="fragment lowercase"><em>Resource timing API processing model <u>ends</u> here.</em></h5>
           </section>
           <!-- [2.25] -->
           <section data-state="centered">
@@ -284,16 +302,7 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.26] -->
           <section data-state="centered">
             <h3>Processing Phase</h3>
-            <img src="img/nav-timing-processing.svg" alt="Navigation timing processing model diagram with the processing phase highlighted.">
-          </section>
-          <!-- [2.27] -->
-          <section>
-            <h1 class="accent">RUM Trivia:</h1>
-            <ul>
-              <li class="fragment"><code>domInteractive</code> marks when the browser has finished DOM construction.</li>
-              <li class="fragment"><code>domContentLoadedEventEnd</code> marks when the DOM is ready.</li>
-              <li class="fragment"><code>domComplete</code> marks when everything has loaded.</li>
-            </ul>
+            <img style="max-height: 9em;" src="img/nav-timing-processing.svg" alt="Navigation timing processing model diagram with the processing phase highlighted.">
           </section>
           <!-- [2.28] -->
           <section data-state="centered">
@@ -303,7 +312,7 @@ performance.getEntriesByType("navigation");</code></pre>
           <!-- [2.29] -->
           <section data-state="centered">
             <h3>Load Phase</h3>
-            <img src="img/nav-timing-load.svg" alt="Navigation timing processing model diagram with the load phase highlighted.">
+            <img style="max-height: 6em;" src="img/nav-timing-load.svg" alt="Navigation timing processing model diagram with the load phase highlighted.">
           </section>
         </section>
         <!-- [3.0] -->
@@ -333,27 +342,13 @@ performance.getEntriesByType("navigation");</code></pre>
           <section data-state="centered">
             <h2><code>encodedBodySize</code></h2>
             <h3 class="lowercase">The compressed size of a resource.</h3>
-            <h4 class="lowercase"><em>(Without headers.)</em></h4>
+            <h4 class="lowercase fragment"><em>(Without headers.)</em></h4>
           </section>
           <!-- [3.6] -->
           <section data-state="centered">
             <h2><code>decodedBodySize</code></h2>
             <h3 class="lowercase">The decompressed size of a resource.</h3>
-            <h4 class="lowercase"><em>(Again, without headers.)</em></h4>
-          </section>
-          <!-- [3.7] -->
-          <section data-state="centered">
-            <h2><code>nextHopProtocol</code></h2>
-            <h3 class="lowercase">The protocol used to transmit a resource.</h3>
-          </section>
-          <!-- [3.8] -->
-          <section>
-            <h3><code>nextHopProtocol</code> values:</h3>
-            <ul>
-              <li class="fragment"><code>h2</code> (HTTP/2)</li>
-              <li class="fragment"><code>hq</code> (QUIC)</li>
-              <li class="fragment"><code>http/1.1</code></li>
-            </ul>
+            <h4 class="lowercase fragment"><em>(Again, without headers.)</em></h4>
           </section>
         </section>
         <!-- [4.0] -->
@@ -367,18 +362,13 @@ performance.getEntriesByType("navigation");</code></pre>
             <h2>TTFB <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
             <pre><code class="javascript">let ttfb = responseStart - fetchStart; // 35.6001 ms</code></pre>
+            <pre class="fragment"><code class="javascript">let ttfb = responseStart - requestStart; // 27.3999 ms</code></pre>
           </section>
           <!-- [4.3] -->
           <section data-state="centered">
             <h2>Header size <span class="lowercase"><em>(bytes)</em></span></h2>
             <hr>
             <pre><code class="javascript">let headerSize = transferSize - encodedBodySize; // 169 bytes</code></pre>
-          </section>
-          <!-- [4.4] -->
-          <section data-state="centered">
-            <h2>DNS lookup time <span class="lowercase"><em>(ms)</em></span></h2>
-            <hr>
-            <pre><code class="javascript">let dnsTime = domainLookupEnd - domainLookupStart; // 171.2999 ms</code></pre>
           </section>
           <!-- [4.5] -->
           <section data-state="centered">
@@ -405,29 +395,14 @@ if (secureConnectionStart &gt; 0) {
           </section>
           <!-- [5.2] -->
           <section data-state="centered">
-            <h1>Don't use</h1>
-            <h2><code>performance.timing</code></h2>
-          </section>
-          <!-- [5.3] -->
-          <section>
-            <h1 class="accent">The case against</h1>
-            <h3><code>performance.timing</code></h3>
-            <ul>
-              <li class="fragment">Technically obsolete.</li>
-              <li class="fragment">Uses low resolution Unix timestamps.</li>
-            </ul>
-          </section>
-          <!-- [5.4] -->
-          <section data-state="centered">
             <h2>
               Don't record<br>
               computed metrics
             </h2>
-            <h4 class="fragment lowercase"><em>(Unless you know what you're doing.)</em></h4>
           </section>
-          <!-- [5.5] -->
+          <!-- [5.3] -->
           <section data-state="centered">
-            <h2>Always feature check:</h2>
+            <h3>Always, <em>always</em> feature check:</h3>
             <pre><code class="javascript">// Check if we can do performance-y things
 if (&quot;performance&quot; in window) {
   if (performance.getEntriesByType(&quot;navigation&quot;).length > 0) {
@@ -437,20 +412,11 @@ if (&quot;performance&quot; in window) {
   if (performance.getEntriesByType(&quot;resource&quot;).length > 0) {
     // Do stuff with resource timing
   }
-
-  if (performance.getEntriesByType(&quot;paint&quot;).length > 0) {
-    // Do stuff with paint timing
-  }
 }</code></pre>
           </section>
-          <!-- [5.6] -->
+          <!-- [5.4] -->
           <section data-state="centered">
-            <h3 class="lowercase">Gather performance metrics with</h3>
-            <h2><code>PerformanceObserver</code></h2>
-          </section>
-          <!-- [5.7] -->
-          <section data-state="centered">
-            <h3>Using <code>PerformanceObserver</code></h3>
+            <h3>Use <code>PerformanceObserver</code></h3>
             <pre><code class="javascript">var observer = new PerformanceObserver(list => {
   var perfEntries = list.getEntries();
 
@@ -473,7 +439,7 @@ observer.observe({
               <source srcset="img/understand-nothing.webp" type="image/webp">
               <img src="img/understand-nothing.png" alt="A picture of Michael Scott from The Office saying he doesn't understand anything.">
             </picture>
-            <h2 class="accent">&quot;This is a <u>lot</u> to remember.&quot;</h2>
+            <h3 class="lowercase"><em>This is a <u>ton</u> of stuff to remember.</em></h3>
           </section>
           <!-- [6.2] -->
           <section data-state="centered">
@@ -496,7 +462,7 @@ observer.observe({
               <source srcset="img/appd-timing-breakdown-2x.webp 2x, img/appd-timing-breakdown-1x.webp 1x" type="image/webp">
               <img class="stretch" src="img/appd-timing-breakdown-1x.png" srcset="img/appd-timing-breakdown-2x.png 2x, img/appd-timing-breakdown-1x.png 1x" alt="A breakdown of timings in the AppDynamics end-user monitoring product.">
             </picture>
-            <h4 class="lowercase"><em>Visualize specific real user metrics.</em></h4>
+            <h4 class="lowercase"><em>Drill down to specific metrics.</em></h4>
           </section>
           <!-- [6.5] -->
           <section data-state="centered">
@@ -505,7 +471,7 @@ observer.observe({
               <source srcset="img/appd-low-level-2x.webp 2x, img/appd-low-level-1x.webp 1x" type="image/webp">
               <img class="stretch" src="img/appd-low-level-1x.png" srcset="img/appd-low-level-2x.png 2x, img/appd-low-level-1x.png 1x" alt="A low level view RUM data over time in the AppDynamics end-user monitoring product.">
             </picture>
-            <h4 class="lowercase"><em>Plot low level timing data per category over time.</em></h4>
+            <h4 class="lowercase"><em>Plot timing values per category over time.</em></h4>
           </section>
           <section data-state="centered">
             <img class="mediumish" src="img/appd.svg" alt="AppDynamics Logo">
