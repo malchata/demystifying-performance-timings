@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, nocache">
     <title>Demystifying Performance Timings</title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/mystifying.css?v=3">
+    <link rel="stylesheet" href="css/theme/mystifying.css?v=4">
     <link rel="stylesheet" href="lib/css/zenburn.css">
   </head>
   <body>
@@ -35,7 +35,10 @@
                 <hr>
                 <img src="img/appd.svg" alt="AppDynamics Logo" class="larger">
               </div>
-              <img src="img/me.jpg" alt="Jeremy Wagner speaking at a conference.">
+              <picture>
+                <source srcset="img/me.webp" type="image/webp">
+                <img src="img/me.jpg" alt="Jeremy Wagner speaking at a conference.">
+              </picture>
             </div>
           </section>
         </section>
@@ -102,7 +105,7 @@
             <h2><u>R</u>eal <u>U</u>ser <u>M</u>onitoring</h2>
             <h3 class="lowercase fragment">(or <em>field data</em>)</h3>
           </section>
-          <!-- [1.8] -->
+          <!-- [1.9] -->
           <section>
             <h1 class="accent">The case for:</h1>
             <ul class="emoji-list">
@@ -111,17 +114,17 @@
               </li>
             </ul>
           </section>
-          <!-- [1.9] -->
+          <!-- [1.10] -->
           <section>
             <h1 class="accent">The caveat:</h1>
             <h3 class="lowercase fragment">It's <em>hard to do</em>.</h3>
           </section>
-          <!-- [1.10] -->
+          <!-- [1.11] -->
           <section>
             <pre><code class="javascript">// Doesn't look _that_ hard, right?
 performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
           </section>
-          <!-- [1.11] -->
+          <!-- [1.12] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/navigation-timing-2x.webp 2x, img/navigation-timing-1x.webp 1x" type="image/webp">
@@ -129,7 +132,7 @@ performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
               <img src="img/navigation-timing-2x.png" alt="A screenshot of a navigation timing entry in Chrome.">
             </picture>
           </section>
-          <!-- [1.12] -->
+          <!-- [1.13] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/cry.webp" type="image/webp">
@@ -137,21 +140,15 @@ performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
             </picture>
             <h4>Gaze upon thy works and despair.</h4>
           </section>
-          <!-- [1.13] -->
-          <section data-state="centered">
-            <h3 class="lowercase">If it's so hard to do,</h3>
-            <h2>Then why do it?</h2>
-            <h1><span class="fragment">💸</span> <span class="fragment">👀</span></h1>
-          </section>
         </section>
         <!-- [2.0] -->
         <section>
-          <!-- [2.2] -->
+          <!-- [2.1] -->
           <section>
             <h1 class="accent">Navigation timing</h1>
             <h3 class="lowercase fragment">Gathers metrics for <em><u>documents</u></em>.</h3>
           </section>
-          <!-- [2.3] -->
+          <!-- [2.2] -->
           <section>
             <h1 class="accent">Resource timing</h1>
             <h3 class="lowercase">Gathers metrics for <em><u>resources</u></em>.</h3>
@@ -173,10 +170,19 @@ performance.getEntriesByType(&quot;resource&quot;);</code></pre>
           </section>
           <!-- [2.5] -->
           <section data-state="centered">
+            <img class="medium" src="img/appd.svg" alt="AppDynamics Logo">
+            <picture>
+              <source srcset="img/appd-timing-breakdown-2x.webp 2x, img/appd-timing-breakdown-1x.webp 1x" type="image/webp">
+              <img class="stretch" src="img/appd-timing-breakdown-1x.png" srcset="img/appd-timing-breakdown-2x.png 2x, img/appd-timing-breakdown-1x.png 1x" alt="A breakdown of timings in the AppDynamics end-user monitoring product.">
+            </picture>
+            <h4 class="lowercase"><em>End User Monitoring (EUM)</em></h4>
+          </section>
+          <!-- [2.6] -->
+          <section data-state="centered">
             <h2>Unload Phase</h2>
             <h4 class="lowercase">When the document unloads.</h4>
           </section>
-          <!-- [2.6] -->
+          <!-- [2.7] -->
           <section data-state="centered">
             <h3>Unload Phase</h3>
             <img style="max-height: 6em;" src="img/nav-timing-unload.svg" alt="Navigation timing processing model diagram with the unload phase highlighted.">
@@ -188,53 +194,60 @@ performance.getEntriesByType(&quot;resource&quot;);</code></pre>
           </section>
           <!-- [2.9] -->
           <section data-state="centered">
+            <picture>
+              <source srcset="img/cat-chasing-tail.webp" type="image/webp">
+              <img class="larger" src="img/cat-chasing-tail.gif" alt="An animated GIF of a cat chasing its tail.">
+            </picture>
+          </section>
+          <!-- [2.10] -->
+          <section data-state="centered">
             <h3>Redirects can be costly!</h3>
             <picture>
               <source srcset="img/redirect-2x.webp 2x, img/redirect-1x.webp 1x" type="image/webp">
               <source srcset="img/redirect-2x.png 2x, img/redirect-1x.png 1x" type="image/png">
-              <img class="stretch" src="img/redirect-2x.png" alt="A screenshot of redirects mapped out in Chrome dev tools.">
+              <img class="stretch" src="img/redirect-2x.png" alt="A screenshot of redirects mapped out in Chrome DevTools.">
             </picture>
           </section>
-          <!-- [2.10] -->
+          <!-- [2.11] -->
           <section data-state="centered">
             <h3>Redirect Phase</h3>
             <img style="max-height: 6em;" src="img/nav-timing-redirect.svg" alt="Navigation timing processing model diagram with the redirect phase highlighted.">
             <h5 class="fragment lowercase"><em>Resource timing API processing model <u>begins</u> here.</em></h5>
           </section>
-          <!-- [2.11] -->
+          <!-- [2.12] -->
           <section data-state="centered">
             <h2>Cache Seek Phase</h2>
             <h4 class="lowercase">When the browser begins to fetch an item.</h4>
           </section>
-          <!-- [2.12] -->
+          <!-- [2.13] -->
           <section data-state="centered">
             <h3>Cache Seek Phase</h3>
             <img style="max-height: 6em;" src="img/nav-timing-cache.svg" alt="Navigation timing processing model diagram with the cache phase highlighted.">
           </section>
-          <!-- [2.13] -->
+          <!-- [2.14] -->
           <section data-state="centered">
             <h3>Cached <span class="lowercase">vs.</span> uncached</h3>
-            <img class="stretch" src="img/appcache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached resources.">
+            <img class="stretch" src="img/cache-differences.svg" alt="Differences in app cache performance timing phases for cached and uncached resources.">
           </section>
-          <!-- [2.14] -->
+          <!-- [2.15] -->
           <section data-state="centered">
             <h2>DNS</h2>
             <h4 class="lowercase">When domain lookups occur.</h4>
           </section>
-          <!-- [2.15] -->
+          <!-- [2.14] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
               <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
-              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
+              <img class="larger stretch" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome DevTools.">
             </picture>
           </section>
-          <!-- [2.16] -->
+          <!-- [2.15] -->
           <section data-state="centered">
             <h3>DNS</h3>
             <img style="max-height: 6em;" src="img/nav-timing-dns.svg" alt="Navigation timing processing model diagram with the DNS phase highlighted.">
           </section>
-          <!-- [2.17] -->
+          <!-- [2.16] -->
           <section>
             <h1 class="accent">RUM Trivia:</h1>
             <ul>
@@ -249,67 +262,67 @@ performance.getEntriesByType(&quot;resource&quot;);</code></pre>
               </li>
             </ul>
           </section>
-          <!-- [2.18] -->
+          <!-- [2.17] -->
           <section data-state="centered">
             <h2>Connection Phase</h2>
             <h4 class="lowercase">When connections are established.</h4>
           </section>
-          <!-- [2.19] -->
+          <!-- [2.18] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/connection-time-2x.webp 2x, img/connection-time-1x.webp 1x" type="image/webp">
               <source srcset="img/connection-time-2x.png 2x, img/connection-time-1x.png 1x" type="image/png">
-              <img class="larger" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome dev tools.">
+              <img class="larger" src="img/connection-time-2x.png" alt="A screenshot of connection phases and times for a page resource in Chrome DevTools.">
             </picture>
           </section>
-          <!-- [2.20] -->
+          <!-- [2.19] -->
           <section data-state="centered">
             <h3>Connection Phase</h3>
             <img style="max-height: 8em;" src="img/nav-timing-tcp.svg" alt="Navigation timing processing model diagram with the TCP phase highlighted.">
           </section>
-          <!-- [2.21] -->
+          <!-- [2.20] -->
           <section>
             <h1 class="accent">RUM Trivia:</h1>
             <ul>
-              <li class="fragment">Connections can be reused (i.e., <code>Keep-Alive</code>).</li>
+              <li class="fragment">Connections can be reused (i.e., <code>Keep-Alive</code>) or multiplexed (HTTP/2).</li>
               <li class="fragment"><code>secureConnectionStart</code> will be <code>0</code> for non-secure sites <span class="fragment"><em>or</em> if TLS sessions are resumed.</span></li>
             </ul>
           </section>
-          <!-- [2.22] -->
+          <!-- [2.21] -->
           <section data-state="centered">
             <h2>Request/Response Phase</h2>
             <h4 class="lowercase">When requests are made, and when responses arrive.</h4>
           </section>
-          <!-- [2.23] -->
+          <!-- [2.22] -->
           <section data-state="centered">
             <picture>
               <source srcset="img/request-response-2x.webp 2x, img/request-response-1x.webp 1x" type="image/webp">
               <source srcset="img/request-response-2x.png 2x, img/request-response-1x.png 1x" type="image/png">
-              <img class="larger" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome dev tools.">
+              <img class="larger" src="img/request-response-2x.png" alt="A screenshot of request and response metrics mapped out in Chrome DevTools.">
             </picture>
           </section>
-          <!-- [2.24] -->
+          <!-- [2.23] -->
           <section data-state="centered">
             <h3>Request/Response Phase</h3>
             <img style="max-height: 8em;" src="img/nav-timing-request-response.svg" alt="Navigation timing processing model diagram with the request and response phases highlighted.">
             <h5 class="fragment lowercase"><em>Resource timing API processing model <u>ends</u> here.</em></h5>
           </section>
-          <!-- [2.25] -->
+          <!-- [2.24] -->
           <section data-state="centered">
             <h2>Processing Phase</h2>
             <h4 class="lowercase">When the DOM is being processed.</h4>
           </section>
-          <!-- [2.26] -->
+          <!-- [2.25] -->
           <section data-state="centered">
             <h3>Processing Phase</h3>
             <img style="max-height: 9em;" src="img/nav-timing-processing.svg" alt="Navigation timing processing model diagram with the processing phase highlighted.">
           </section>
-          <!-- [2.28] -->
+          <!-- [2.26] -->
           <section data-state="centered">
             <h2>Load Phase</h2>
             <h4 class="lowercase">When the page and all of its resources are fully loaded.</h4>
           </section>
-          <!-- [2.29] -->
+          <!-- [2.27] -->
           <section data-state="centered">
             <h3>Load Phase</h3>
             <img style="max-height: 6em;" src="img/nav-timing-load.svg" alt="Navigation timing processing model diagram with the load phase highlighted.">
@@ -370,13 +383,13 @@ performance.getEntriesByType(&quot;resource&quot;);</code></pre>
             <hr>
             <pre><code class="javascript">let headerSize = transferSize - encodedBodySize; // 169 bytes</code></pre>
           </section>
-          <!-- [4.5] -->
+          <!-- [4.4] -->
           <section data-state="centered">
             <h2>TCP time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
             <pre><code class="javascript">let tcpTime = connectEnd - connectStart; // 93.5005 ms</code></pre>
           </section>
-          <!-- [4.6] -->
+          <!-- [4.5] -->
           <section data-state="centered">
             <h2>SSL time <span class="lowercase"><em>(ms)</em></span></h2>
             <hr>
@@ -427,7 +440,7 @@ if (&quot;performance&quot; in window) {
 
 observer.observe({
   // Add performance entry types you want to observe here:
-  entryTypes: [&quot;navigation&quot;, &quot;resource&quot;, &quot;paint&quot;, &quot;longtask&quot;]
+  entryTypes: [&quot;navigation&quot;, &quot;resource&quot;]
 });</code></pre>
           </section>
         </section>
@@ -482,7 +495,16 @@ observer.observe({
         <section>
           <!-- [7.1] -->
           <section data-state="centered">
-            <h1 class="accent">Thanks!</h1>
+            <h2>Now, go!</h2>
+            <picture>
+              <source srcset="img/yes.webp" type="image/webp">
+              <img class="larger" src="img/yes.gif" alt="An animated GIF of Dwight Schrute saying 'YES' as he does karate moves.">
+            </picture>
+            <h3>Make the web faster!</h3>
+          </section>
+          <!-- [7.2] -->
+          <section data-state="centered">
+            <h1 class="accent">Thank you!</h1>
             <h3 class="lowercase">
               <em>
                 Slides:<br>
