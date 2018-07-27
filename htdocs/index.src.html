@@ -6,7 +6,7 @@
     <meta name="robots" content="noindex, nofollow, nocache">
     <title>Demystifying Performance Timings</title>
     <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/mystifying.css?v=4">
+    <link rel="stylesheet" href="css/theme/mystifying.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
   </head>
   <body>
@@ -23,7 +23,7 @@
                 resource timing
               </h2>
               <hr>
-              <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
+              <h5 class="lowercase"><em>by Jeremy Wagner &mdash; <a href="https://www.jeremywagner.me/" rel="noopener">jeremywagner.me</a></em></h5>
             </div>
           </section>
           <!-- [0.2] - Hello! -->
@@ -90,7 +90,7 @@
             <h1 class="accent">The caveat:</h1>
             <ul class="emoji-list">
               <li class="x fragment">
-                <div>It doesn't reflect what <em>real users</em> are experiencing.</div>
+                <div>It doesn't reflect what <u><em>your users</em></u> are experiencing.</div>
               </li>
             </ul>
           </section>
@@ -140,6 +140,13 @@ performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
             </picture>
             <h4>Gaze upon thy works and despair.</h4>
           </section>
+          <!-- [1.14] -->
+         <section data-state="centered">
+           <h3 class="lowercase"><em>If it is so hard to do,</em></h3>
+           <h3 class="lowercase">If it's so hard to do,</h3>
+           <h2>Then why do it?</h2>
+           <h1><span class="fragment">💸</span> <span class="fragment">👀</span></h1>
+         </section>
         </section>
         <!-- [2.0] -->
         <section>
@@ -160,7 +167,10 @@ performance.getEntriesByType(&quot;navigation&quot;);</code></pre>
 performance.getEntriesByType(&quot;navigation&quot;);
 
 // Get resource timing entries
-performance.getEntriesByType(&quot;resource&quot;);</code></pre>
+performance.getEntriesByType(&quot;resource&quot;);
+
+// Just get everything
+performance.getEntries();</code></pre>
           </section>
           <!-- [2.4] -->
           <section data-state="centered">
